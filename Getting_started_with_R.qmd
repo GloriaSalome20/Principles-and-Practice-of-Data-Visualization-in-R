@@ -1,0 +1,198 @@
+---
+title: " "
+format:
+  html:
+    smooth-scroll: true
+    toc: true
+    toc-location: left
+    number-sections: false
+    number-depth: 2
+    css: styles.css
+execute:
+  echo: true
+  warning: false
+---
+
+# Getting Started with R and RStudio Installation Guide
+
+::: callout-tip
+
+### Aim of this section
+
+To provide you with a clear and concise instructions for installing R, RStudio, and R packages
+:::
+
+
+## Installing R
+
+**R** is a powerfull programming language for statistical computing and graphics. It is one of main programming language used for data science (with other programming languages such as Python and Julia).
+
+::: panel-tabset
+### Step 1
+
+**DOWNLOAD R**
+
+Visit the [Comprehensive R Archive Network (CRAN)](https://cran.r-project.org/mirrors.html) to download R which is a network of servers around the world that store identical up-to-date versions of code and documentation for R. {{< pagebreak >}}
+
+![](images/pic1.png) Scroll down the page to locate the mirror that is the closest to your geographic location and click on its URL.
+
+::: callout-tip
+Selecting a mirror that is close to you may help speed up the download. You can still use another mirror since the closest geographic location does not always give the best mirror.
+:::
+
+For instance, when downloading R from Rwanda, you can select the mirror from [South Africa](https://cran.mirror.ac.za/).
+
+### Step 2
+
+**CHOOSE YOUR OPERATION SYSTEM**
+
+Once on the CRAN page, select your operating system: Linux, macOS, or Windows. {{< pagebreak >}}
+
+![](images/pic2.png)
+
+### Step 3
+
+Select binaries for base distribution
+
+{{< pagebreak >}}
+
+![](images/pic3.png)
+
+### Step 4
+
+**DOWNLOAD THE INSTALLER**
+
+Download the R installer (\< 80 MB)
+
+{{< pagebreak >}}
+
+![](images/pic4.png)
+
+### Step 5
+
+**RUN THE INSTALLER**
+
+Locate the downloaded file in your computer's Downloads folder and double-click to run the installation wizard.
+
+{{< pagebreak >}}
+
+![](images/pic5.png)
+
+### Step 6
+
+**COMPLETE INSTALLATION**
+
+Follow the instruction in the installation wizard to complete the installation.
+
+{{< pagebreak >}}
+
+![](images/pic6.png)
+:::
+
+{{< pagebreak >}}
+
+## Install and setup RStudio Desktop
+
+**Rstudio** is an integrated development environment (IDE) for R, providing a user-friendly interface for R programming.
+
+::: callout-tip
+
+### Note
+RStudio is moving away from its R-exclusive focus and becoming Posit in October 2022 to enable broader data science, scientific research, and technical communication functionalities and, in particular, to integrate Python users.
+:::
+
+::: callout-tip
+
+### Important
+In order for RStudio desktop to work with R you must have installed R on your computer, see Section A.1. RStudio does not include R when you download and install it.
+:::
+
+
+
+::: panel-tabset
+### Step 1
+
+**DOWNLOAD RStudio**
+
+You can download R from the [RStudio website](https://posit.co/download/rstudio-desktop/). There are different RStudio products available, but the free Desktop version offers all necessary features for your analyses.
+
+![](images/pic21.png)
+
+### Step 2
+
+**CHOOSE YOUR OPERATION SYSTEM**
+
+Download the RStudio Desktop installer compatible with your operating system.
+
+![](images/pic22.png)
+
+### Step 3
+
+**RUN THE INSTALLER**
+
+Locate the downloaded file in your computer's Downloads folder and double-click to run the setup.
+
+![](images/pic23.png)
+
+### Step 4
+
+**COMPLETE INSTALLATION**
+
+Follow the instruction in the installation wizard to complete the installation process.
+
+![](images/pic24.png)
+
+### Step 5
+
+**CONFIGURATION**
+
+After installing RStudio, open the application. Navigate to Tools \> Global options to set your preferences. 
+
+![](images/pic25.png)
+
+### Step 6
+
+Under the **General** options and the **Basic** tab:
+
+**Workspace**
+
+Uncheck Restore .RData into workspace at startup
+
+Ensure that Never is selected for Save workspace to .RData on exit.
+
+**History**
+
+Uncheck Always save history (even when not saving .RData)
+
+Uncheck Remove duplicate entries in history
+
+![](images/pic26.png)
+:::
+
+## Installing R packages
+
+::: callout-tip
+
+### Note 
+
+A R package is a collection of functions, data, and compiled code in a well-defined format, created to add specific functionality to R.
+
+There are 10,000+ user contributed packages and growing.
+
+There is a set of standard (or base) packages which is considered part of the R source code and automatically available as part of your R installation. Base packages contain the basic functions that allow R to work, and enable standard statistical and graphical functions on data sets.
+:::
+
+::: panel-tabset
+### Step 1
+
+Open RStudio on your computer
+
+### Step 2
+
+In RStudio, you can install a new package by selecting Tools \> Install packages... ![](images/pic31.png)
+
+### Step 3
+
+Enter the name of the package you want to install, or browse through available packages. Select the desired package(s) and click Install to add them to your R environment.
+![](images/pic32.png)
+:::
