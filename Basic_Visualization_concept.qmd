@@ -14,6 +14,29 @@ execute:
 ---
 
 
+# Main objective
+At the end of the training we intend to know how to produce this plot
+```{r}
+ggplot(data=df,aes(x=date_tested, y= incidence))+
+  geom_line(size=1.5,aes(group=age_group ,col =age_group)) +
+  geom_point( size=1.2)+
+  labs(x="Date",y="incidence for 100000/month",title="malaria Incidence,2018")+
+  theme_bw()+
+  theme(plot.title = element_text(hjust=0.5), axis.text.x = element_text(angle=45,hjust=1))+
+  scale_x_date(date_breaks = "1 month", date_labels = "%B")
+```
+
+
+```{r}
+ggplot(data=df,aes(x=date_tested, y= conf))+
+  geom_point(size=2.5,aes(color =age_group)) +
+  facet_grid( . ~ age_group, scales="free_y") +
+  labs(x="Date",y="comfirmed cases for 100000/month",title="malaria comfirmed cases,2018")+
+  theme_bw()+
+  theme(plot.title = element_text(hjust=0.5), axis.text.x = element_text(angle=45,hjust=1))+
+  scale_color_manual(values=c("pink","green","black"))
+
+```
 
 # Understanding ggplot Library
 
@@ -33,18 +56,37 @@ Understand how each layer adds elements to the plot.
 
 ggplot operates on a layered grammar of graphics, where you start with a base plot and add layers of data, aesthetics, and geometries. Each layer in ggplot adds a different aspect to the plot, allowing you to customize and enhance the visualization.
 
-```{r}
-# # library(ggplot2)
-# 
-# # Base plot
-# base_plot <- ggplot(data = my_data, aes(x = x_variable, y = y_variable))
-# 
-# # Adding layers
-# layered_plot <- base_plot +
-#   geom_point() +  # Add points
-#   geom_smooth(method = "lm")  # Add regression line
+::: panel-tabset
 
+### base plot
+
+```{r}
+base_plot <- ggplot(data = df_und5, aes(x = date_tested, y = incidence))
 ```
+
+
+### Adding points
+```{r}
+layered_plot <- base_plot +
+  geom_point()
+```
+
+
+
+### Adding Vertical line
+
+```{r}
+layered_vline<- layered_plot +
+  geom_vline(xintercept = as.numeric(as.Date('2018-05-01')))
+```
+
+### Adding title
+
+```{r}
+layered_vline + labs(title = "Mabangata incidence 2018")
+```
+
+:::
 
 
 
@@ -66,11 +108,58 @@ Variables specified within the aes() function are mapped to aesthetics and can v
 
 It's important to keep variables that should vary across data points (e.g., data attributes) inside the aes() function.
 
+::: panel-tabset
+
+### positioning 
+
+the aes in the base or geom
+
+
 ```{r}
-# # Mapping variables to aesthetics
-# ggplot(data = my_data, aes(x = x_variable, y = y_variable, color = group_variable)) +
-#   geom_point()  # Add points with different colors based on group variable
+ggplot(data = df, aes(x = date_tested, y = incidence)) +
+    geom_point()+
+  geom_line()
 ```
+
+
+```{r}
+# ggplot(data = df) +
+#   geom_point( aes(x = date_tested, y = incidence))+
+#   geom_line()
+```
+
+```{r}
+ggplot(data = df) +
+  geom_point( aes(x = date_tested, y = incidence))+
+  geom_line(aes(x = date_tested, y = conf))
+```
+
+
+
+
+### inside and outside the eas
+
+
+```{r}
+ggplot(data = df, aes(x = date_tested, y = incidence),color = age_group) +
+  geom_point( )
+```
+
+
+
+```{r}
+ggplot(data = df, aes(x = date_tested, y = incidence, color = age_group)) +
+  geom_point()
+```
+
+when the color option is not categorical but numeric then it indicates the level
+
+```{r}
+ggplot(data = df_und5, aes(x = date_tested, y = incidence, color = incidence)) +
+  geom_point()
+```
+??scale_color_distiller, gradient
+:::
 
 
 
@@ -117,15 +206,23 @@ Explore customization options by adjusting line properties such as size, color, 
 ::: panel-tabset
 
 ## simple line plot
+why keeping group=1
 ```{r}
-#ggplot(data=total_df, aes(x=date_tested, y= incidence))+ 
-  #geom_line()
+ggplot(data = df_und5, aes(x = date_tested, y = incidence)) +
+    geom_line(group=1)
+
+# why keep group=1
 ```
 
 ## customize the line
+ 
 ```{r}
-#ggplot(data=total_df, aes(x=date_tested, y= incidence))+ 
-  #geom_line(size=1,colour="blue",linetype="dashed")
+ggplot(data = df_und5, aes(x = date_tested, y = incidence))+ 
+  geom_line(size=1,colour="blue",linetype="dashed")
+
+
+ggplot(data = df_und5, aes(x = date_tested, y = incidence))+ 
+  geom_line(size=1,colour="blue",linetype="dotted")
 ```
 
 :::
@@ -134,9 +231,7 @@ In this example, we're using the *geom_line()* geometry to create a line plot.
 
 We specify the x-axis variable (*date_tested*) and the y-axis variable (*incidence*) within the *aes()* function. This creates a line plot showing how the incidence variable changes over time.
 
-You can customize various aspects of the line plot using arguments within the *geom_line()* function.
-
-For example, you can change the size of the line, its color, and even its line type (solid, dashed, etc.). These customizations help to improve the readability and aesthetics of the plot.
+You can customize various aspects of the line plot using arguments within the *geom_line()* function. For example, you can change the size of the line, its color, and even its line type ("blank", "solid", "dashed", "dotted", "dotdash", "longdash", and "twodash".). These customizations help to improve the readability and aesthetics of the plot.
 
 ::: callout-tip
 
@@ -166,7 +261,7 @@ Adjust point properties such as color, size, and transparency.
   #geom_point()
 ```
 
-## customize the point
+## customize the points
 ```{r}
 #ggplot(data=total_df, aes(x=date_tested, y= incidence)) + 
   #geom_point(colour="blue",size=3.2,alpha=0.9, shape=1)

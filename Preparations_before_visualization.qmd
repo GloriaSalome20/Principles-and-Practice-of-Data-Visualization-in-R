@@ -71,7 +71,10 @@ Here, you can execute temporary code snippets. The Console Pane is where R execu
 The Environment Pane provides a snapshot of your current R environment. It displays information about the objects (variables, functions, data frames) that are currently loaded into your R session. You can see the names, types, dimensions, and values of these objects. This pane is particularly useful for inspecting and managing your workspace during data analysis.
  
  ![](images/pan3.png)
+
+
 ### Plots, Files, and Viewer Pane
+
 This pane serves multiple purposes:
 
 
@@ -97,8 +100,8 @@ Ensure to call out libraries responsible for the task aimed to achieve. for visu
 
 ```{r}
 # Load required libraries
-#library(ggplot2)
-#library(tidyverse)
+ library(ggplot2)
+ library(tidyverse)
 ```
 
 ## Reading data 
@@ -124,7 +127,7 @@ Ensure you save your data and R script in same folder
  
 ```{r}
 # Read CSV file
-# read.csv("file_name.csv")
+df <- read.csv("Mabangata_region_incidence2018.csv")
 ```
 
 ### Step 2
@@ -132,9 +135,10 @@ Ensure you save your data and R script in same folder
 When not in the same folder then copy the path/directory of the file
 ```{r}
 # Read CSV file from a different folder
-# read.csv("path_to_file_name.csv")
+df<- read.csv("C:/Users/shirgl/Desktop/SwissTPH/conferences&presentations/Ammnet/training materials/data_malariaAtlas/Mabangata_region_incidence2018.csv")
 ```
 :::
+
 
 **Reading Other File Formats**
 
@@ -158,3 +162,14 @@ When not in the same folder then copy the path/directory of the file
 # read.dta()
 ```
 :::
+
+
+### data manipulation to choose the data of under five and convert to date format
+
+
+
+```{r}
+df$date_tested <- as.Date(df$date_tested,"%m/%d/%Y")
+df_und5<- df %>% filter(age_group=="u5") 
+```
+

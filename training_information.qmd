@@ -13,7 +13,6 @@ execute:
   warning: false
 ---
 
-
 # Training Information
 
 The goal of this workshop is to equip participants with the ability to recognize and produce data visualizations in accordance with the best practices of the field. Looking forward to meeting you all!
@@ -22,27 +21,24 @@ The goal of this workshop is to equip participants with the ability to recognize
 
 The workshop takes place at **.. Hotel**. The conference room is **... Hall**.
 
-
 ## Before the workshop
 
-1.  If you have not done it yet, please go through the following  steps (about 15 minutes).
+Please try to have these installed before the training, if you have any trouble installing we will have a station on 18th April where you can come for assistance (The steps migt take approximately 15 minutes).
 
-    a.  [Install R]( )
+```         
+a.  [Install R]( )
 
-    b.  [Install and setup RStudio Desktop]( )
+b.  [Install and setup RStudio Desktop]( )
 
-
-    
-  
+c.  [libraries]( )
+```
 
 ::: callout-tip
-
 ### note
 
-* All software used in this workshop are free.
-* If you have any difficulties with the installation, support can be provided on the first day of the AMMnet meeting or before the session or during breaks.
+-   All software used in this workshop are free.
+-   If you have any difficulties with the installation, support can be provided on the first day of the AMMnet meeting or before the session or during breaks.
 :::
-
 
 {{< pagebreak >}}
 
@@ -50,30 +46,28 @@ The workshop takes place at **.. Hotel**. The conference room is **... Hall**.
 
 ## Friday April 19th
 
-+----------------+----------------------------------------------+
-| Time           | Session                                      |
-+:==============:+:=============================================+
-| 15min before   | Welcome\                                     |
-|                | Support for software installation            |
-+----------------+----------------------------------------------+
-| 15min          |Introduction to data Visualization presentation|
-+----------------+----------------------------------------------+
-| 30min          |Introduction to R Studio, Reading Data, GGplot|
-+----------------+----------------------------------------------+
-| 10min          | Power coffee Break                          |
-+----------------+----------------------------------------------+
-| 50min          | Line Plot, Scatter Plots and Exercise        |
-+----------------+----------------------------------------------+
-| 30min          | combination of line and Scatter & Exercise   |
-+----------------+----------------------------------------------+
-| 30min          |Group work & winding up                       |
-+----------------+----------------------------------------------+
++--------------+-------------------------------------------------+----------+
+| Time         | Session                                         |          |
++:============:+:================================================+==========+
+| 15min before | Welcome\                                        |          |
+|              | Support for software installation               |          |
++--------------+-------------------------------------------------+----------+
+| 15min        | Introduction to data Visualization presentation |          |
++--------------+-------------------------------------------------+----------+
+| 30min        | Introduction to R Studio, Reading Data, GGplot  |          |
++--------------+-------------------------------------------------+----------+
+| 30min        | coffee Break                                    |          |
++--------------+-------------------------------------------------+----------+
+| 50min        | Line Plot, Scatter Plots and Exercise           |          |
++--------------+-------------------------------------------------+----------+
+| 30min        | combination of line and Scatter & Exercise      |          |
++--------------+-------------------------------------------------+----------+
+| 20min        | Winding up session & survey filling             |          |
++--------------+-------------------------------------------------+----------+
 
 : Overview Schedule {#tbl-training-schedule}
 
 {{< pagebreak >}}
-
-
 
 ## After the workshop
 

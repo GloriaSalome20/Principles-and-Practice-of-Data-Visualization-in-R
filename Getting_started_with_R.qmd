@@ -16,12 +16,10 @@ execute:
 # Getting Started with R and RStudio Installation Guide
 
 ::: callout-tip
-
 ### Aim of this section
 
 To provide you with a clear and concise instructions for installing R, RStudio, and R packages
 :::
-
 
 ## Installing R
 
@@ -96,18 +94,16 @@ Follow the instruction in the installation wizard to complete the installation.
 **Rstudio** is an integrated development environment (IDE) for R, providing a user-friendly interface for R programming.
 
 ::: callout-tip
-
 ### Note
+
 RStudio is moving away from its R-exclusive focus and becoming Posit in October 2022 to enable broader data science, scientific research, and technical communication functionalities and, in particular, to integrate Python users.
 :::
 
 ::: callout-tip
-
 ### Important
+
 In order for RStudio desktop to work with R you must have installed R on your computer, see Section A.1. RStudio does not include R when you download and install it.
 :::
-
-
 
 ::: panel-tabset
 ### Step 1
@@ -146,7 +142,7 @@ Follow the instruction in the installation wizard to complete the installation p
 
 **CONFIGURATION**
 
-After installing RStudio, open the application. Navigate to Tools \> Global options to set your preferences. 
+After installing RStudio, open the application. Navigate to Tools \> Global options to set your preferences.
 
 ![](images/pic25.png)
 
@@ -172,8 +168,7 @@ Uncheck Remove duplicate entries in history
 ## Installing R packages
 
 ::: callout-tip
-
-### Note 
+### Note
 
 A R package is a collection of functions, data, and compiled code in a well-defined format, created to add specific functionality to R.
 
@@ -193,6 +188,5 @@ In RStudio, you can install a new package by selecting Tools \> Install packages
 
 ### Step 3
 
-Enter the name of the package you want to install, or browse through available packages. Select the desired package(s) and click Install to add them to your R environment.
-![](images/pic32.png)
+Enter the name of the package you want to install, or browse through available packages. Select the desired package(s) and click Install to add them to your R environment. ![](images/pic32.png)
 :::

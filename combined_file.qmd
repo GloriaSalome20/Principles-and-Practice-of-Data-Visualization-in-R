@@ -5,6 +5,10 @@ format:
     smooth-scroll: true
     toc: true
     toc-location: right
+execute:
+  echo: true
+  warning: false
+  message: false
 
 ---
 
