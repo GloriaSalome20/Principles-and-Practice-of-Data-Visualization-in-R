@@ -1,0 +1,20 @@
+---
+title: " "
+format:
+  html:
+    smooth-scroll: true
+    toc: true
+    toc-location: right
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+{{< include training_information.qmd >}}
+
+{{< include Getting_started_with_R.qmd >}}
+
+{{< include Preparations_before_visualization.qmd >}}
+
+{{< include Basic_Visualization_concept.qmd >}}

@@ -1,0 +1,306 @@
+---
+title: " "
+format:
+  html:
+    smooth-scroll: true
+    toc: true
+    toc-location: left
+    number-sections: false
+    number-depth: 2
+    css: styles.css
+execute:
+  echo: true
+  warning: false
+---
+
+```{r}
+# Load required libraries
+ library(ggplot2)
+ library(tidyverse)
+ df <- read.csv("Mabangata_region_incidence2018.csv")
+ df$date_tested <- as.Date(df$date_tested,"%m/%d/%Y")
+ df_und5<- df %>% filter(age_group=="u5") 
+```
+
+# Main objective
+
+At the end of the training we intend to know how to produce this plot
+
+```{r}
+ggplot(data=df,aes(x=date_tested, y= incidence))+
+  geom_line(size=1.5,aes(group=age_group ,col =age_group)) +
+  geom_point( size=1.2)+
+  labs(x="Date",y="incidence for 100000/month",title="malaria Incidence,2018")+
+  theme_bw()+
+  theme(plot.title = element_text(hjust=0.5), axis.text.x = element_text(angle=45,hjust=1))+
+  scale_x_date(date_breaks = "1 month", date_labels = "%B")
+```
+
+```{r}
+ggplot(data=df,aes(x=date_tested, y= conf))+
+  geom_point(size=2.5,aes(color =age_group)) +
+  facet_grid( . ~ age_group, scales="free_y") +
+  labs(x="Date",y="comfirmed cases for 100000/month",title="malaria comfirmed cases,2018")+
+  theme_bw()+
+  theme(plot.title = element_text(hjust=0.5), axis.text.x = element_text(angle=45,hjust=1))+
+  scale_color_manual(values=c("pink","green","black"))
+
+```
+
+# Understanding ggplot Library
+
+The ggplot library is a powerful tool for creating data visualizations in R. It follows a layered approach to building plots, where each layer adds additional elements to the plot. Understanding how ggplot works can help you create sophisticated and informative visualizations.
+
+## Layers in ggplot
+
+::: callout-tip
+### Aim:
+
+Learn about the layered approach of ggplot. Understand how each layer adds elements to the plot.
+:::
+
+ggplot operates on a layered grammar of graphics, where you start with a base plot and add layers of data, aesthetics, and geometries. Each layer in ggplot adds a different aspect to the plot, allowing you to customize and enhance the visualization.
+
+::: panel-tabset
+### base plot
+
+```{r}
+base_plot <- ggplot(data = df_und5, aes(x = date_tested, y = incidence))
+```
+
+### Adding points
+
+```{r}
+layered_plot <- base_plot +
+  geom_point()
+```
+
+### Adding Vertical line
+
+```{r}
+layered_vline<- layered_plot +
+  geom_vline(xintercept = as.numeric(as.Date('2018-05-01')))
+```
+
+### Adding title
+
+```{r}
+layered_vline + labs(title = "Mabangata incidence 2018")
+```
+:::
+
+## The aes Function
+
+::: callout-tip
+### Aim:
+
+Understand the role of the aes function in ggplot. Learn when to use aes to map variables to aesthetics.
+:::
+
+The aes() function is used to map variables to aesthetic properties such as x and y axes, colors, shapes, etc.
+
+Variables specified within the aes() function are mapped to aesthetics and can vary across data points.
+
+It's important to keep variables that should vary across data points (e.g., data attributes) inside the aes() function.
+
+::: panel-tabset
+### positioning
+
+the aes in the base or geom
+
+```{r}
+ggplot(data = df, aes(x = date_tested, y = incidence)) +
+    geom_point()+
+  geom_line()
+```
+
+```{r}
+# ggplot(data = df) +
+#   geom_point( aes(x = date_tested, y = incidence))+
+#   geom_line()
+```
+
+```{r}
+ggplot(data = df) +
+  geom_point( aes(x = date_tested, y = incidence))+
+  geom_line(aes(x = date_tested, y = conf))
+```
+
+### inside and outside the eas
+
+```{r}
+ggplot(data = df, aes(x = date_tested, y = incidence),color = age_group) +
+  geom_point( )
+```
+
+```{r}
+ggplot(data = df, aes(x = date_tested, y = incidence, color = age_group)) +
+  geom_point()
+```
+
+when the color option is not categorical but numeric then it indicates the level
+
+```{r}
+ggplot(data = df_und5, aes(x = date_tested, y = incidence, color = incidence)) +
+  geom_point()
+```
+
+??scale_color_distiller, gradient
+:::
+
+## Customization and Layering
+
+::: callout-tip
+### Aim:
+
+Explore customization options in ggplot. Understand how to layer multiple elements in a plot.
+:::
+
+ggplot allows for extensive customization of plots, including changing colors, sizes, labels, and more.
+
+You can layer multiple geometries (e.g., points, lines) and additional elements (e.g., labels, titles) onto a single plot to create complex visualizations.
+
+Layers are added sequentially, with each layer building on top of the previous ones, allowing for fine-grained control over the plot's appearance.
+
+```{r}
+# # Customizing and layering
+# ggplot(data = my_data, aes(x = x_variable, y = y_variable)) +
+#   geom_point() +  # Add points
+#   geom_smooth(method = "lm") +  # Add regression line
+#   labs(title = "Scatter plot with Regression Line", x = "X-axis label", y = "Y-axis label")  # Add title and axis labels
+```
+
+## Creating a Line Plot
+
+::: callout-tip
+### Aim:
+
+Create a basic line plot using ggplot.
+
+Explore customization options by adjusting line properties such as size, color, and line type.
+:::
+
+::: panel-tabset
+## simple line plot
+
+why keeping group=1
+
+```{r}
+ggplot(data = df_und5, aes(x = date_tested, y = incidence)) +
+    geom_line(group=1)
+
+# why keep group=1
+```
+
+## customize the line
+
+```{r}
+ggplot(data = df_und5, aes(x = date_tested, y = incidence))+ 
+  geom_line(size=1,colour="blue",linetype="dashed")
+
+
+ggplot(data = df_und5, aes(x = date_tested, y = incidence))+ 
+  geom_line(size=1,colour="blue",linetype="dotted")
+```
+:::
+
+In this example, we're using the *geom_line()* geometry to create a line plot.
+
+We specify the x-axis variable (*date_tested*) and the y-axis variable (*incidence*) within the *aes()* function. This creates a line plot showing how the incidence variable changes over time.
+
+You can customize various aspects of the line plot using arguments within the *geom_line()* function. For example, you can change the size of the line, its color, and even its line type ("blank", "solid", "dashed", "dotted", "dotdash", "longdash", and "twodash".). These customizations help to improve the readability and aesthetics of the plot.
+
+::: callout-tip
+### Tutorial:
+
+Write a code snippet to create a basic scatter plot to visualize incidence, then customize the appearance of points in a scatter plot to red dots
+:::
+
+## Creating a Scatter Plot
+
+::: callout-tip
+### Aim:
+
+Understand the structure of a scatter plot using ggplot.
+
+Adjust point properties such as color, size, and transparency.
+:::
+
+::: panel-tabset
+## simple scatter plot
+
+```{r}
+#ggplot(data=total_df, aes(x=date_tested, y= incidence))+ 
+  #geom_point()
+```
+
+## customize the points
+
+```{r}
+#ggplot(data=total_df, aes(x=date_tested, y= incidence)) + 
+  #geom_point(colour="blue",size=3.2,alpha=0.9, shape=1)
+```
+:::
+
+Scatter plots are useful for visualizing the relationship between two continuous variables.
+
+In this example, we're using the geom_point() geometry to create a scatter plot.Each point represents a single data observation, with one variable plotted against the other.
+
+You can customize various aspects of the scatter plot points using arguments within the geom_point() function.For example, you can change the color, size, and transparency of the points to highlight certain patterns or trends in the data.
+
+::: callout-tip
+### Tutorial:
+
+Write a code snippet to create a line plot as shown in the image below
+:::
+
+## combination of line and scatter plot
+
+::: callout-tip
+### Aim:
+
+Understand how to combine line and scatter plots in ggplot. Visualize trends and individual data points simultaneously.
+:::
+
+Combining line and scatter plots allows you to display both trend information (through the line) and individual data points (through the scatter). This is useful for scenarios where you want to show both the overall trend and the variability of the data points around that trend.
+
+```{r}
+##line and point
+#ggplot(data=total_df, aes(x=date_tested, y= incidence))+ 
+  #geom_line(size=1,colour="blue")+
+  #geom_point(colour="red",size=3.2,alpha=0.7, shape=1)
+```
+
+::: callout-tip
+### Tutorial:
+
+Write a code snippet to create a combined plot showing both trends of incidence and individual data points for prevalence. Adjust the color of points in a combined plot.
+:::
+
+## Customizing plots for presentation and publication purpose
+
+::: callout-tip
+### Aim:
+
+Learn how to customize plots for presentation and publication. Adjust plot elements such as titles, labels, themes, and scales.
+:::
+
+Customizing plots is essential for making them more visually appealing and informative for presentation or publication.
+
+Elements such as titles, axis labels, and themes can be customized to enhance readability and aesthetics. Scales can be adjusted to ensure that the data is displayed in a clear and meaningful way.
+
+```{r}
+#ggplot(data=total_df, aes(x=date_tested, y= incidence))+
+ # geom_point(colour="blue", size=4.2)+
+ # labs(x="Date",y="incidence for 100000/month",title="malaria Incidence,2018")+
+  #theme_bw()+
+  #theme(plot.title = element_text(hjust=0.5), axis.text.x = element_text(angle=45,hjust=1))+
+#scale_x_date(date_breaks = "1 month", date_labels = "%B")
+
+```
+
+::: callout-tip
+### Tutorial:
+
+create the following plot
+:::
