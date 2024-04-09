@@ -1,10 +1,10 @@
 ---
-title: " "
+title: "Basic Visualization Concepts"
 format:
   html:
     smooth-scroll: true
     toc: true
-    toc-location: left
+    toc-location: right
     number-sections: false
     number-depth: 2
     css: styles.css

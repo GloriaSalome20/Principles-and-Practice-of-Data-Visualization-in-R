@@ -1,10 +1,10 @@
 ---
-title: " "
+title: "Exploring New Script & R Panes"
 format:
   html:
     smooth-scroll: true
     toc: true
-    toc-location: left
+    toc-location: right
     number-sections: false
     number-depth: 2
     css: styles.css
@@ -15,7 +15,6 @@ execute:
 
 {{< pagebreak >}}
 
-# Exploring New Script & R Panes
 
 ## Creating a new R Script
 

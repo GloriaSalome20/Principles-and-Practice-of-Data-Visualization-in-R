@@ -177,56 +177,56 @@
   {
     "objectID": "Basic_Visualization_concept.html",
     "href": "Basic_Visualization_concept.html",
-    "title": "Main objective",
+    "title": "Basic Visualization Concepts",
     "section": "",
     "text": "# Load required libraries\n library(ggplot2)\n library(tidyverse)\n df &lt;- read.csv(\"Mabangata_region_incidence2018.csv\")\n df$date_tested &lt;- as.Date(df$date_tested,\"%m/%d/%Y\")\n df_und5&lt;- df %&gt;% filter(age_group==\"u5\")"
   },
   {
     "objectID": "Basic_Visualization_concept.html#layers-in-ggplot",
     "href": "Basic_Visualization_concept.html#layers-in-ggplot",
-    "title": "Main objective",
+    "title": "Basic Visualization Concepts",
     "section": "Layers in ggplot",
     "text": "Layers in ggplot\n\n\n\n\n\n\nAim:\n\n\n\nLearn about the layered approach of ggplot. Understand how each layer adds elements to the plot.\n\n\nggplot operates on a layered grammar of graphics, where you start with a base plot and add layers of data, aesthetics, and geometries. Each layer in ggplot adds a different aspect to the plot, allowing you to customize and enhance the visualization.\n\nbase plotAdding pointsAdding Vertical lineAdding title\n\n\n\nbase_plot &lt;- ggplot(data = df_und5, aes(x = date_tested, y = incidence))\n\n\n\n\nlayered_plot &lt;- base_plot +\n  geom_point()\n\n\n\n\nlayered_vline&lt;- layered_plot +\n  geom_vline(xintercept = as.numeric(as.Date('2018-05-01')))\n\n\n\n\nlayered_vline + labs(title = \"Mabangata incidence 2018\")"
   },
   {
     "objectID": "Basic_Visualization_concept.html#the-aes-function",
     "href": "Basic_Visualization_concept.html#the-aes-function",
-    "title": "Main objective",
+    "title": "Basic Visualization Concepts",
     "section": "The aes Function",
     "text": "The aes Function\n\n\n\n\n\n\nAim:\n\n\n\nUnderstand the role of the aes function in ggplot. Learn when to use aes to map variables to aesthetics.\n\n\nThe aes() function is used to map variables to aesthetic properties such as x and y axes, colors, shapes, etc.\nVariables specified within the aes() function are mapped to aesthetics and can vary across data points.\nIt’s important to keep variables that should vary across data points (e.g., data attributes) inside the aes() function.\n\npositioninginside and outside the eas\n\n\nthe aes in the base or geom\n\nggplot(data = df, aes(x = date_tested, y = incidence)) +\n    geom_point()+\n  geom_line()\n\n\n\n\n\n# ggplot(data = df) +\n#   geom_point( aes(x = date_tested, y = incidence))+\n#   geom_line()\n\n\nggplot(data = df) +\n  geom_point( aes(x = date_tested, y = incidence))+\n  geom_line(aes(x = date_tested, y = conf))\n\n\n\n\n\n\n\nggplot(data = df, aes(x = date_tested, y = incidence),color = age_group) +\n  geom_point( )\n\n\n\n\n\nggplot(data = df, aes(x = date_tested, y = incidence, color = age_group)) +\n  geom_point()\n\n\n\n\nwhen the color option is not categorical but numeric then it indicates the level\n\nggplot(data = df_und5, aes(x = date_tested, y = incidence, color = incidence)) +\n  geom_point()\n\n\n\n\n??scale_color_distiller, gradient"
   },
   {
     "objectID": "Basic_Visualization_concept.html#customization-and-layering",
     "href": "Basic_Visualization_concept.html#customization-and-layering",
-    "title": "Main objective",
+    "title": "Basic Visualization Concepts",
     "section": "Customization and Layering",
     "text": "Customization and Layering\n\n\n\n\n\n\nAim:\n\n\n\nExplore customization options in ggplot. Understand how to layer multiple elements in a plot.\n\n\nggplot allows for extensive customization of plots, including changing colors, sizes, labels, and more.\nYou can layer multiple geometries (e.g., points, lines) and additional elements (e.g., labels, titles) onto a single plot to create complex visualizations.\nLayers are added sequentially, with each layer building on top of the previous ones, allowing for fine-grained control over the plot’s appearance.\n\n# # Customizing and layering\n# ggplot(data = my_data, aes(x = x_variable, y = y_variable)) +\n#   geom_point() +  # Add points\n#   geom_smooth(method = \"lm\") +  # Add regression line\n#   labs(title = \"Scatter plot with Regression Line\", x = \"X-axis label\", y = \"Y-axis label\")  # Add title and axis labels"
   },
   {
     "objectID": "Basic_Visualization_concept.html#creating-a-line-plot",
     "href": "Basic_Visualization_concept.html#creating-a-line-plot",
-    "title": "Main objective",
+    "title": "Basic Visualization Concepts",
     "section": "Creating a Line Plot",
     "text": "Creating a Line Plot\n\n\n\n\n\n\nAim:\n\n\n\nCreate a basic line plot using ggplot.\nExplore customization options by adjusting line properties such as size, color, and line type.\n\n\n\nsimple line plotcustomize the line\n\n\nwhy keeping group=1\n\nggplot(data = df_und5, aes(x = date_tested, y = incidence)) +\n    geom_line(group=1)\n\n\n\n# why keep group=1\n\n\n\n\nggplot(data = df_und5, aes(x = date_tested, y = incidence))+ \n  geom_line(size=1,colour=\"blue\",linetype=\"dashed\")\n\n\n\nggplot(data = df_und5, aes(x = date_tested, y = incidence))+ \n  geom_line(size=1,colour=\"blue\",linetype=\"dotted\")\n\n\n\n\n\n\n\nIn this example, we’re using the geom_line() geometry to create a line plot.\nWe specify the x-axis variable (date_tested) and the y-axis variable (incidence) within the aes() function. This creates a line plot showing how the incidence variable changes over time.\nYou can customize various aspects of the line plot using arguments within the geom_line() function. For example, you can change the size of the line, its color, and even its line type (“blank”, “solid”, “dashed”, “dotted”, “dotdash”, “longdash”, and “twodash”.). These customizations help to improve the readability and aesthetics of the plot.\n\n\n\n\n\n\nTutorial:\n\n\n\nWrite a code snippet to create a basic scatter plot to visualize incidence, then customize the appearance of points in a scatter plot to red dots"
   },
   {
     "objectID": "Basic_Visualization_concept.html#creating-a-scatter-plot",
     "href": "Basic_Visualization_concept.html#creating-a-scatter-plot",
-    "title": "Main objective",
+    "title": "Basic Visualization Concepts",
     "section": "Creating a Scatter Plot",
     "text": "Creating a Scatter Plot\n\n\n\n\n\n\nAim:\n\n\n\nUnderstand the structure of a scatter plot using ggplot.\nAdjust point properties such as color, size, and transparency.\n\n\n\nsimple scatter plotcustomize the points\n\n\n\n#ggplot(data=total_df, aes(x=date_tested, y= incidence))+ \n  #geom_point()\n\n\n\n\n#ggplot(data=total_df, aes(x=date_tested, y= incidence)) + \n  #geom_point(colour=\"blue\",size=3.2,alpha=0.9, shape=1)\n\n\n\n\nScatter plots are useful for visualizing the relationship between two continuous variables.\nIn this example, we’re using the geom_point() geometry to create a scatter plot.Each point represents a single data observation, with one variable plotted against the other.\nYou can customize various aspects of the scatter plot points using arguments within the geom_point() function.For example, you can change the color, size, and transparency of the points to highlight certain patterns or trends in the data.\n\n\n\n\n\n\nTutorial:\n\n\n\nWrite a code snippet to create a line plot as shown in the image below"
   },
   {
     "objectID": "Basic_Visualization_concept.html#combination-of-line-and-scatter-plot",
     "href": "Basic_Visualization_concept.html#combination-of-line-and-scatter-plot",
-    "title": "Main objective",
+    "title": "Basic Visualization Concepts",
     "section": "combination of line and scatter plot",
     "text": "combination of line and scatter plot\n\n\n\n\n\n\nAim:\n\n\n\nUnderstand how to combine line and scatter plots in ggplot. Visualize trends and individual data points simultaneously.\n\n\nCombining line and scatter plots allows you to display both trend information (through the line) and individual data points (through the scatter). This is useful for scenarios where you want to show both the overall trend and the variability of the data points around that trend.\n\n##line and point\n#ggplot(data=total_df, aes(x=date_tested, y= incidence))+ \n  #geom_line(size=1,colour=\"blue\")+\n  #geom_point(colour=\"red\",size=3.2,alpha=0.7, shape=1)\n\n\n\n\n\n\n\nTutorial:\n\n\n\nWrite a code snippet to create a combined plot showing both trends of incidence and individual data points for prevalence. Adjust the color of points in a combined plot."
   },
   {
     "objectID": "Basic_Visualization_concept.html#customizing-plots-for-presentation-and-publication-purpose",
     "href": "Basic_Visualization_concept.html#customizing-plots-for-presentation-and-publication-purpose",
-    "title": "Main objective",
+    "title": "Basic Visualization Concepts",
     "section": "Customizing plots for presentation and publication purpose",
     "text": "Customizing plots for presentation and publication purpose\n\n\n\n\n\n\nAim:\n\n\n\nLearn how to customize plots for presentation and publication. Adjust plot elements such as titles, labels, themes, and scales.\n\n\nCustomizing plots is essential for making them more visually appealing and informative for presentation or publication.\nElements such as titles, axis labels, and themes can be customized to enhance readability and aesthetics. Scales can be adjusted to ensure that the data is displayed in a clear and meaningful way.\n\n#ggplot(data=total_df, aes(x=date_tested, y= incidence))+\n # geom_point(colour=\"blue\", size=4.2)+\n # labs(x=\"Date\",y=\"incidence for 100000/month\",title=\"malaria Incidence,2018\")+\n  #theme_bw()+\n  #theme(plot.title = element_text(hjust=0.5), axis.text.x = element_text(angle=45,hjust=1))+\n#scale_x_date(date_breaks = \"1 month\", date_labels = \"%B\")\n\n\n\n\n\n\n\nTutorial:\n\n\n\ncreate the following plot"
   },
@@ -235,42 +235,42 @@
     "href": "training_information.html",
     "title": "Training Information",
     "section": "",
-    "text": "The goal of this workshop is to equip participants with the ability to recognize and produce data visualizations in accordance with the best practices of the field. Looking forward to meeting you all!\n\n\nThe workshop takes place at .. Hotel. The conference room is … Hall.\n\n\n\nPlease try to have these installed before the training, if you have any trouble installing we will have a station on 18th April where you can come for assistance (The steps migt take approximately 15 minutes).\na.  [Install R]( )\n\nb.  [Install and setup RStudio Desktop]( )\n\nc.  [libraries]( )\n\n\n\n\n\n\nnote\n\n\n\n\nAll software used in this workshop are free.\nIf you have any difficulties with the installation, support can be provided on the first day of the AMMnet meeting or before the session or during breaks.\n\n\n\n\n\n\n\n\n\n\n\n\nTable 1: Overview Schedule\n\n\n\n\n\n\n\nTime\nSession\n\n\n\n\n\n15min before\nWelcome\nSupport for software installation\n\n\n\n15min\nIntroduction to data Visualization presentation\n\n\n\n30min\nIntroduction to R Studio, Reading Data, GGplot\n\n\n\n30min\ncoffee Break\n\n\n\n50min\nLine Plot, Scatter Plots and Exercise\n\n\n\n30min\ncombination of line and Scatter & Exercise\n\n\n\n20min\nWinding up session & survey filling\n\n\n\n\n\n\n\n\n\n\nFill out the online post-workshop questionnaire (link to be provided after the workshop)"
+    "text": "The goal of this workshop is to equip participants with the ability to recognize and produce data visualizations in accordance with the best practices of the field. Looking forward to meeting you all!"
   },
   {
     "objectID": "training_information.html#venue",
     "href": "training_information.html#venue",
     "title": "Training Information",
-    "section": "",
-    "text": "The workshop takes place at .. Hotel. The conference room is … Hall."
+    "section": "Venue",
+    "text": "Venue\nThe workshop takes place at .. Hotel. The conference room is … Hall."
   },
   {
     "objectID": "training_information.html#before-the-workshop",
     "href": "training_information.html#before-the-workshop",
     "title": "Training Information",
-    "section": "",
-    "text": "Please try to have these installed before the training, if you have any trouble installing we will have a station on 18th April where you can come for assistance (The steps migt take approximately 15 minutes).\na.  [Install R]( )\n\nb.  [Install and setup RStudio Desktop]( )\n\nc.  [libraries]( )\n\n\n\n\n\n\nnote\n\n\n\n\nAll software used in this workshop are free.\nIf you have any difficulties with the installation, support can be provided on the first day of the AMMnet meeting or before the session or during breaks."
+    "section": "Before the workshop",
+    "text": "Before the workshop\nPlease try to have these installed before the training, if you have any trouble installing we will have a station on 18th April where you can come for assistance (The steps migt take approximately 15 minutes).\na.  [Install R]( )\n\nb.  [Install and setup RStudio Desktop]( )\n\nc.  [libraries]( )\n\n\n\n\n\n\nnote\n\n\n\n\nAll software used in this workshop are free.\nIf you have any difficulties with the installation, support can be provided on the first day of the AMMnet meeting or before the session or during breaks."
   },
   {
     "objectID": "training_information.html#friday-april-19th",
     "href": "training_information.html#friday-april-19th",
     "title": "Training Information",
-    "section": "",
-    "text": "Table 1: Overview Schedule\n\n\n\n\n\n\n\nTime\nSession\n\n\n\n\n\n15min before\nWelcome\nSupport for software installation\n\n\n\n15min\nIntroduction to data Visualization presentation\n\n\n\n30min\nIntroduction to R Studio, Reading Data, GGplot\n\n\n\n30min\ncoffee Break\n\n\n\n50min\nLine Plot, Scatter Plots and Exercise\n\n\n\n30min\ncombination of line and Scatter & Exercise\n\n\n\n20min\nWinding up session & survey filling"
+    "section": "Friday April 19th",
+    "text": "Friday April 19th\n\n\nTable 1: Overview Schedule\n\n\n\n\n\n\n\nTime\nSession\n\n\n\n\n\n15min before\nWelcome\nSupport for software installation\n\n\n\n15min\nIntroduction to data Visualization presentation\n\n\n\n30min\nIntroduction to R Studio, Reading Data, GGplot\n\n\n\n30min\ncoffee Break\n\n\n\n50min\nLine Plot, Scatter Plots and Exercise\n\n\n\n30min\ncombination of line and Scatter & Exercise\n\n\n\n20min\nWinding up session & survey filling"
   },
   {
     "objectID": "training_information.html#after-the-workshop",
     "href": "training_information.html#after-the-workshop",
     "title": "Training Information",
-    "section": "",
-    "text": "Fill out the online post-workshop questionnaire (link to be provided after the workshop)"
+    "section": "After the workshop",
+    "text": "After the workshop\n\nFill out the online post-workshop questionnaire (link to be provided after the workshop)"
   },
   {
     "objectID": "Getting_started_with_R.html",
     "href": "Getting_started_with_R.html",
     "title": "Getting Started with R and RStudio Installation Guide",
     "section": "",
-    "text": "Aim of this section\n\n\n\nTo provide you with a clear and concise instructions for installing R, RStudio, and R packages\n\n\n\n\nR is a powerfull programming language for statistical computing and graphics. It is one of main programming language used for data science (with other programming languages such as Python and Julia).\n\nStep 1Step 2Step 3Step 4Step 5Step 6\n\n\nDOWNLOAD R\nVisit the Comprehensive R Archive Network (CRAN) to download R which is a network of servers around the world that store identical up-to-date versions of code and documentation for R. \n Scroll down the page to locate the mirror that is the closest to your geographic location and click on its URL.\n\n\n\n\n\n\nTip\n\n\n\nSelecting a mirror that is close to you may help speed up the download. You can still use another mirror since the closest geographic location does not always give the best mirror.\n\n\nFor instance, when downloading R from Rwanda, you can select the mirror from South Africa.\n\n\nCHOOSE YOUR OPERATION SYSTEM\nOnce on the CRAN page, select your operating system: Linux, macOS, or Windows. \n\n\n\nSelect binaries for base distribution\n\n\n\n\nDOWNLOAD THE INSTALLER\nDownload the R installer (&lt; 80 MB)\n\n\n\n\nRUN THE INSTALLER\nLocate the downloaded file in your computer’s Downloads folder and double-click to run the installation wizard.\n\n\n\n\nCOMPLETE INSTALLATION\nFollow the instruction in the installation wizard to complete the installation.\n\n\n\n\n\n\n\n\n\nRstudio is an integrated development environment (IDE) for R, providing a user-friendly interface for R programming.\n\n\n\n\n\n\nNote\n\n\n\nRStudio is moving away from its R-exclusive focus and becoming Posit in October 2022 to enable broader data science, scientific research, and technical communication functionalities and, in particular, to integrate Python users.\n\n\n\n\n\n\n\n\nImportant\n\n\n\nIn order for RStudio desktop to work with R you must have installed R on your computer, see Section A.1. RStudio does not include R when you download and install it.\n\n\n\nStep 1Step 2Step 3Step 4Step 5Step 6\n\n\nDOWNLOAD RStudio\nYou can download R from the RStudio website. There are different RStudio products available, but the free Desktop version offers all necessary features for your analyses.\n\n\n\nCHOOSE YOUR OPERATION SYSTEM\nDownload the RStudio Desktop installer compatible with your operating system.\n\n\n\nRUN THE INSTALLER\nLocate the downloaded file in your computer’s Downloads folder and double-click to run the setup.\n\n\n\nCOMPLETE INSTALLATION\nFollow the instruction in the installation wizard to complete the installation process.\n\n\n\nCONFIGURATION\nAfter installing RStudio, open the application. Navigate to Tools &gt; Global options to set your preferences.\n\n\n\nUnder the General options and the Basic tab:\nWorkspace\nUncheck Restore .RData into workspace at startup\nEnsure that Never is selected for Save workspace to .RData on exit.\nHistory\nUncheck Always save history (even when not saving .RData)\nUncheck Remove duplicate entries in history\n\n\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nA R package is a collection of functions, data, and compiled code in a well-defined format, created to add specific functionality to R.\nThere are 10,000+ user contributed packages and growing.\nThere is a set of standard (or base) packages which is considered part of the R source code and automatically available as part of your R installation. Base packages contain the basic functions that allow R to work, and enable standard statistical and graphical functions on data sets.\n\n\n\nStep 1Step 2Step 3\n\n\nOpen RStudio on your computer\n\n\nIn RStudio, you can install a new package by selecting Tools &gt; Install packages… \n\n\nEnter the name of the package you want to install, or browse through available packages. Select the desired package(s) and click Install to add them to your R environment."
+    "text": "R is a powerful programming language for statistical computing and graphics. It is one of main programming language used for data science (with other programming languages such as Python and Julia). The following instructions will show you how to install R on either a Windows or a Mac computer.\n\n\n\nStep 1Step 2Step 3Step 4Step 5Step 6\n\n\nDownload R\nVisit the Comprehensive R Archive Network (CRAN) to download R which is a network of servers around the world that store identical up-to-date versions of code and documentation for R. \n Scroll down the page to locate the mirror that is the closest to your geographic location and click on its URL.\n\n\n\n\n\n\nTip\n\n\n\nSelecting a mirror that is close to you may help speed up the download. You can still use another mirror since the closest geographic location does not always give the best mirror.\n\n\nFor instance, when downloading R from Rwanda, you can select the mirror from South Africa.\n\n\nChoose Your Operating System\nOnce on the CRAN page, select the operating system Windows. \n\n\n\nSelect binaries for base distribution\n\n\n\n\nDownload the Installer\nDownload the R installer (&lt; 80 MB)\n\n\n\n\nRun the Installer\nLocate the downloaded file in your computer’s Downloads folder and double-click to run the installation wizard.\n\n\n\n\nComplete Installation\nFollow the instruction in the installation wizard to complete the installation.\n\n\n\n\n\n\n\n\n\n\nStep 1Step 2Step 3Step 4Step 5\n\n\nDownload R\nVisit the Comprehensive R Archive Network (CRAN) to download R which is a network of servers around the world that store identical up-to-date versions of code and documentation for R. \n Scroll down the page to locate the mirror that is the closest to your geographic location and click on its URL.\n\n\n\n\n\n\nTip\n\n\n\nSelecting a mirror that is close to you may help speed up the download. You can still use another mirror since the closest geographic location does not always give the best mirror.\n\n\nFor instance, when downloading R from Rwanda, you can select the mirror from South Africa.\n\n\nChoose Your Operating System\nOnce on the CRAN page, select the operating system macOS. \n\n\n\nYou will be directed to a page that looks like this:\n\n\nYou must now select one of two binary packages to install, depending on the age of your computer. Go to the Apple icon in the top left corner of your Mac and select “About This Mac”.\n\n\nWhen you click, a small window will appear giving you information about your computer. Notice what is written next to the “Chip:” label:\n\n \nIf the chip is M1, M2, or M3, click the arm64.pkg installer on the R installation page. If the chip does not say M1, M2, or M3, clicke the x86_64.pkg installer.\n\n\nDownload the Installer\nDownload the R installer (~100 MB). When it has installed, click on it in your “Downloads” folder.\n\n\n\n\nRun the Installer\nLocate the downloaded file in your computer’s Downloads folder and double-click to run the installation wizard. When the installation is complete, you may be prompted to delete the installer file. If you are prompted, press “Yes”. If you are not prompted, you can delete the installer .pkg file manually."
   },
   {
     "objectID": "Getting_started_with_R.html#installing-r",
@@ -292,5 +292,75 @@
     "title": "Getting Started with R and RStudio Installation Guide",
     "section": "",
     "text": "Note\n\n\n\nA R package is a collection of functions, data, and compiled code in a well-defined format, created to add specific functionality to R.\nThere are 10,000+ user contributed packages and growing.\nThere is a set of standard (or base) packages which is considered part of the R source code and automatically available as part of your R installation. Base packages contain the basic functions that allow R to work, and enable standard statistical and graphical functions on data sets.\n\n\n\nStep 1Step 2Step 3\n\n\nOpen RStudio on your computer\n\n\nIn RStudio, you can install a new package by selecting Tools &gt; Install packages… \n\n\nEnter the name of the package you want to install, or browse through available packages. Select the desired package(s) and click Install to add them to your R environment."
+  },
+  {
+    "objectID": "r_installation_all.html",
+    "href": "r_installation_all.html",
+    "title": "Before You Arrive: Install or Update R and RStudio",
+    "section": "",
+    "text": "We’re so excited to have you join us in Kigali for AMMNet 2024! If you are registered to attend any training session, you are required to have the latest versions of R and RStudio downloaded and installed on your laptops before you arrive at the training. Even if you already have R and RStudio installed, we would like you to install it again to ensure that we’re all working on the latest versions of both softwares. Because this software can take some time to download and we cannot guarantee the strength of conference WiFi, we strongly recommend that you complete the installation before arriving at the conference. If you have not installed the software before you arrive at the training, we cannot guarantee that there will be time or capacity to help you install it. Detailed instructions on installing R, RStudio, and any required packages can be found below.\nIf you run into any difficulties, please reach out to info@ammnet.org for assistance. There will also be a technical helpdesk available at the conference, but again, we will not be able to guarantee download speeds at that time.\nThe materials on this page were developed and shared with permission by Gloria Shirima and Amelia Bertozzi-Villa."
+  },
+  {
+    "objectID": "r_installation_all.html#on-windows",
+    "href": "r_installation_all.html#on-windows",
+    "title": "Before You Arrive: Install or Update R and RStudio",
+    "section": "On Windows",
+    "text": "On Windows\n\nStep 1Step 2Step 3Step 4Step 5Step 6\n\n\nDownload R\nVisit the Comprehensive R Archive Network (CRAN) to download R which is a network of servers around the world that store identical up-to-date versions of code and documentation for R. \n Scroll down the page to locate the mirror that is the closest to your geographic location and click on its URL.\n\n\n\n\n\n\nTip\n\n\n\nSelecting a mirror that is close to you may help speed up the download. You can still use another mirror since the closest geographic location does not always give the best mirror.\n\n\nFor instance, when downloading R from Rwanda, you can select the mirror from South Africa.\n\n\nChoose Your Operating System\nOnce on the CRAN page, select the operating system Windows. \n\n\n\nSelect binaries for base distribution\n\n\n\n\nDownload the Installer\nDownload the R installer (&lt; 80 MB)\n\n\n\n\nRun the Installer\nLocate the downloaded file in your computer’s Downloads folder and double-click to run the installation wizard.\n\n\n\n\nComplete Installation\nFollow the instruction in the installation wizard to complete the installation."
+  },
+  {
+    "objectID": "r_installation_all.html#on-macos",
+    "href": "r_installation_all.html#on-macos",
+    "title": "Before You Arrive: Install or Update R and RStudio",
+    "section": "On MacOS",
+    "text": "On MacOS\n\nStep 1Step 2Step 3Step 4Step 5\n\n\nDownload R\nVisit the Comprehensive R Archive Network (CRAN) to download R which is a network of servers around the world that store identical up-to-date versions of code and documentation for R. \n Scroll down the page to locate the mirror that is the closest to your geographic location and click on its URL.\n\n\n\n\n\n\nTip\n\n\n\nSelecting a mirror that is close to you may help speed up the download. You can still use another mirror since the closest geographic location does not always give the best mirror.\n\n\nFor instance, when downloading R from Rwanda, you can select the mirror from South Africa.\n\n\nChoose Your Operating System\nOnce on the CRAN page, select the operating system macOS. \n\n\n\nYou will be directed to a page that looks like this:\n\n\nYou must now select one of two binary packages to install, depending on the age of your computer. Go to the Apple icon in the top left corner of your Mac and select “About This Mac”.\n\n\nWhen you click, a small window will appear giving you information about your computer. Notice what is written next to the “Chip:” label:\n\n \nIf the chip is M1, M2, or M3, click the arm64.pkg installer on the R installation page. If the chip does not say M1, M2, or M3, clicke the x86_64.pkg installer.\n\n\nDownload the Installer\nDownload the R installer (~100 MB). When it has installed, click on it in your “Downloads” folder.\n\n\n\n\nRun the Installer\nLocate the downloaded file in your computer’s Downloads folder and double-click to run the installation wizard. When the installation is complete, you may be prompted to delete the installer file. If you are prompted, press “Yes”. If you are not prompted, you can delete the installer .pkg file manually."
+  },
+  {
+    "objectID": "r_installation_all.html#using-the-graphic-interface",
+    "href": "r_installation_all.html#using-the-graphic-interface",
+    "title": "Before You Arrive: Install or Update R and RStudio",
+    "section": "Using the Graphic Interface",
+    "text": "Using the Graphic Interface\n\nStep 1Step 2Step 3\n\n\nOpen RStudio on your computer.\n\n\nIn RStudio, you can install a new package by selecting Tools &gt; Install packages… \n\n\nEnter the name of the package you want to install, or browse through available packages. Select the desired package(s) and click Install to add them to your R environment."
+  },
+  {
+    "objectID": "r_installation_all.html#using-the-rstudio-console",
+    "href": "r_installation_all.html#using-the-rstudio-console",
+    "title": "Before You Arrive: Install or Update R and RStudio",
+    "section": "Using the RStudio Console",
+    "text": "Using the RStudio Console\n\nStep 1Step 2Step 3Step 4\n\n\nOpen RStudio on your computer.\n\n\nIn the “Console” tab (at the bottom left of the screen if using the default settings), type install.packages(\"PACKAGE_NAME\"), with the name of the package instead of the letters “PACKAGE_NAME”. Don’t forget the quotation marks! For example, to install the tidyverse package, type install.packages(\"tidyverse\"):\n\n\n\nYou should see a series of text scrolling down the screen (there might be a lot!), followed by a message saying that “the downloaded binary packages are in [location]”.\n\n\n\n\n\n\nTip\n\n\n\nThere should not be any error messages in this process! If you run into errors, try installing via the user interface. If there are still problems, contact the AMMnet team for support.\n\n\n\n\n\nTest the successful installation by “loading” the package into the console.\nType the words find.package(\"PACKAGE_NAME\") into the console. If the package installed successfully, you should see a filepath to the location of the package. If the package didn’t install successfully, you’ll see an error message. Below, you can see an example with a successfully installed package (tidyverse) and a package that has not been installed (fake_package).\n\n\n\n\n\n\nTip\n\n\n\nIf you run into errors, try installing via the user interface. If there are still problems, contact the AMMnet team for support."
+  },
+  {
+    "objectID": "Getting_started_with_R.html#on-windows",
+    "href": "Getting_started_with_R.html#on-windows",
+    "title": "Getting Started with R and RStudio Installation Guide",
+    "section": "",
+    "text": "Step 1Step 2Step 3Step 4Step 5Step 6\n\n\nDownload R\nVisit the Comprehensive R Archive Network (CRAN) to download R which is a network of servers around the world that store identical up-to-date versions of code and documentation for R. \n Scroll down the page to locate the mirror that is the closest to your geographic location and click on its URL.\n\n\n\n\n\n\nTip\n\n\n\nSelecting a mirror that is close to you may help speed up the download. You can still use another mirror since the closest geographic location does not always give the best mirror.\n\n\nFor instance, when downloading R from Rwanda, you can select the mirror from South Africa.\n\n\nChoose Your Operating System\nOnce on the CRAN page, select the operating system Windows. \n\n\n\nSelect binaries for base distribution\n\n\n\n\nDownload the Installer\nDownload the R installer (&lt; 80 MB)\n\n\n\n\nRun the Installer\nLocate the downloaded file in your computer’s Downloads folder and double-click to run the installation wizard.\n\n\n\n\nComplete Installation\nFollow the instruction in the installation wizard to complete the installation."
+  },
+  {
+    "objectID": "Getting_started_with_R.html#on-macos",
+    "href": "Getting_started_with_R.html#on-macos",
+    "title": "Getting Started with R and RStudio Installation Guide",
+    "section": "",
+    "text": "Step 1Step 2Step 3Step 4Step 5\n\n\nDownload R\nVisit the Comprehensive R Archive Network (CRAN) to download R which is a network of servers around the world that store identical up-to-date versions of code and documentation for R. \n Scroll down the page to locate the mirror that is the closest to your geographic location and click on its URL.\n\n\n\n\n\n\nTip\n\n\n\nSelecting a mirror that is close to you may help speed up the download. You can still use another mirror since the closest geographic location does not always give the best mirror.\n\n\nFor instance, when downloading R from Rwanda, you can select the mirror from South Africa.\n\n\nChoose Your Operating System\nOnce on the CRAN page, select the operating system macOS. \n\n\n\nYou will be directed to a page that looks like this:\n\n\nYou must now select one of two binary packages to install, depending on the age of your computer. Go to the Apple icon in the top left corner of your Mac and select “About This Mac”.\n\n\nWhen you click, a small window will appear giving you information about your computer. Notice what is written next to the “Chip:” label:\n\n \nIf the chip is M1, M2, or M3, click the arm64.pkg installer on the R installation page. If the chip does not say M1, M2, or M3, clicke the x86_64.pkg installer.\n\n\nDownload the Installer\nDownload the R installer (~100 MB). When it has installed, click on it in your “Downloads” folder.\n\n\n\n\nRun the Installer\nLocate the downloaded file in your computer’s Downloads folder and double-click to run the installation wizard. When the installation is complete, you may be prompted to delete the installer file. If you are prompted, press “Yes”. If you are not prompted, you can delete the installer .pkg file manually."
+  },
+  {
+    "objectID": "Getting_started_with_R.html#using-the-graphic-interface",
+    "href": "Getting_started_with_R.html#using-the-graphic-interface",
+    "title": "Getting Started with R and RStudio Installation Guide",
+    "section": "Using the Graphic Interface",
+    "text": "Using the Graphic Interface\n\nStep 1Step 2Step 3\n\n\nOpen RStudio on your computer.\n\n\nIn RStudio, you can install a new package by selecting Tools &gt; Install packages… \n\n\nEnter the name of the package you want to install, or browse through available packages. Select the desired package(s) and click Install to add them to your R environment."
+  },
+  {
+    "objectID": "Getting_started_with_R.html#using-the-rstudio-console",
+    "href": "Getting_started_with_R.html#using-the-rstudio-console",
+    "title": "Getting Started with R and RStudio Installation Guide",
+    "section": "Using the RStudio Console",
+    "text": "Using the RStudio Console\n\nStep 1Step 2Step 3Step 4\n\n\nOpen RStudio on your computer.\n\n\nIn the “Console” tab (at the bottom left of the screen if using the default settings), type install.packages(\"PACKAGE_NAME\"), with the name of the package instead of the letters “PACKAGE_NAME”. Don’t forget the quotation marks! For example, to install the tidyverse package, type install.packages(\"tidyverse\"):\n\n\n\nYou should see a series of text scrolling down the screen (there might be a lot!), followed by a message saying that “the downloaded binary packages are in [location]”.\n\n\n\n\n\n\nTip\n\n\n\nThere should not be any error messages in this process! If you run into errors, try installing via the user interface. If there are still problems, contact the AMMnet team for support.\n\n\n\n\n\nTest the successful installation by “loading” the package into the console.\nType the words find.package(\"PACKAGE_NAME\") into the console. If the package installed successfully, you should see a filepath to the location of the package. If the package didn’t install successfully, you’ll see an error message. Below, you can see an example with a successfully installed package (tidyverse) and a package that has not been installed (fake_package).\n\n\n\n\n\n\nTip\n\n\n\nIf you run into errors, try installing via the user interface. If there are still problems, contact the AMMnet team for support."
+  },
+  {
+    "objectID": "training_information.html#schedule",
+    "href": "training_information.html#schedule",
+    "title": "Training Information",
+    "section": "Schedule",
+    "text": "Schedule"
   }
 ]
