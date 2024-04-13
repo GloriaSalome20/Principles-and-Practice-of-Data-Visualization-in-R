@@ -3,29 +3,38 @@ project:
   output-dir: docs
 
 website:
-  title: "website"
+  title: "Principles and Practice of Data Visualization with R"
   navbar:
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
   sidebar:
     style: "floating"
     search: true
     contents:
-      - section: "Basics"
+      - section: "Pre-Training Task"
         contents:
-          - training_information.qmd
           - Getting_started_with_R.qmd
-      - section: "Visualization"
+      - section: "Visualization with Ggplot"
         contents:
           - Preparations_before_visualization.qmd
           - Basic_Visualization_concept.qmd
-format:
-  html:
-    theme: cosmo
-    css: styles.css
-    toc: true
 
+page-footer:
+    background: light # or dark
+    left:
+      - "This page was built by  [Quarto](https://quarto.org/). Copyright 2024, Gloria  & Amelia "
+    right:
+      - icon: github
+        href: https://github.com/
+      
+
+
+
+html:
+  theme: cosmo
+  css: styles.css
+  toc: true
+  
 editor: visual
 

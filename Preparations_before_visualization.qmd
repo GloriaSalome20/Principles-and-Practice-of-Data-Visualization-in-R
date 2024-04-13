@@ -13,58 +13,70 @@ execute:
   warning: false
 ---
 
+
 {{< pagebreak >}}
 
-# Exploring New Script & R Panes
+
 
 ## Creating a new R Script
 
 ::: callout-tip
-### Aim:
 
+### Aim: 
 Understanding how to create and save a new R script file in RStudio.
+
 :::
 
 ::: panel-tabset
-### Step1
 
-Go to file \> New file \> R Script
+### Step1 
+
+
+Go to file > New file > R Script
+
 
 ![](images/pic41.jpg)
 
+
 ### Step 2
 
-Save your R script in the folder of desired directory ![](images/pic42.jpg)
+Save your R script in the folder of desired directory
+![](images/pic42.jpg)
 :::
 
 ## Understanding R Panes
 
-::: callout-tip
-### Aim:
 
+::: callout-tip
+
+### Aim: 
 Familiarize yourself with the different panes in RStudio and their respective functionalities.
+
 :::
 
 ::: panel-tabset
-### Script Pane
 
-The Script Pane is where you write and edit your R code. It's essentially your coding workspace. Here, you can create new scripts, open existing ones, and write or edit R code to perform various tasks like data manipulation, analysis, and visualization.
+
+### Script Pane
+The Script Pane is where you write and edit your R code. It's essentially your coding workspace. Here, you can create new scripts, open existing ones, and write or edit R code to perform various tasks like data manipulation, analysis, and visualization. 
 
 ![](images/pan1.png)
 
 ### Console Pane
 
-Here, you can execute temporary code snippets. The Console Pane is where R executes your code and displays the output. When you run code from the Script Pane, the results, errors, and messages are displayed in the Console Pane. It's an interactive interface where you can directly interact with R, execute commands, and see immediate results. ![](images/pan2.png)
+Here, you can execute temporary code snippets. The Console Pane is where R executes your code and displays the output. When you run code from the Script Pane, the results, errors, and messages are displayed in the Console Pane. It's an interactive interface where you can directly interact with R, execute commands, and see immediate results.
+![](images/pan2.png)
 
 ### Environment Pane
-
 The Environment Pane provides a snapshot of your current R environment. It displays information about the objects (variables, functions, data frames) that are currently loaded into your R session. You can see the names, types, dimensions, and values of these objects. This pane is particularly useful for inspecting and managing your workspace during data analysis.
+ 
+ ![](images/pan3.png)
 
-![](images/pan3.png)
 
 ### Plots, Files, and Viewer Pane
 
 This pane serves multiple purposes:
+
 
 **Plots**: When you create plots in R, they are displayed in the Plots Pane. You can interact with the plots, zoom in/out, save them, or export them as images.
 
@@ -78,9 +90,10 @@ This pane serves multiple purposes:
 ## Managing Libraries
 
 ::: callout-tip
-### Aim:
 
+### Aim: 
 Learn how to load and manage libraries for additional functionalities in R.
+
 :::
 
 Ensure to call out libraries responsible for the task aimed to achieve. for visualization [ggplot]() will be used and [tidyvers]() for data reading and exploration/Manipulation.
@@ -91,23 +104,27 @@ Ensure to call out libraries responsible for the task aimed to achieve. for visu
  library(tidyverse)
 ```
 
-## Reading data
+## Reading data 
 
 ::: callout-tip
-### Aim:
 
+### Aim: 
 Understand how to import data into R from various file formats on different directories.
+
 :::
 
 You can read data from various file formarts like csv, excel and others.
 
 **Reading CSV Files**
-
+ 
 ::: panel-tabset
+
 ### Step 1
 
-Ensure you save your data and R script in same folder
 
+
+Ensure you save your data and R script in same folder
+ 
 ```{r}
 # Read CSV file
 df <- read.csv("Mabangata_region_incidence2018.csv")
@@ -116,18 +133,20 @@ df <- read.csv("Mabangata_region_incidence2018.csv")
 ### Step 2
 
 When not in the same folder then copy the path/directory of the file
-
 ```{r}
 # Read CSV file from a different folder
-# df<- read.csv("C:/Users/shirgl/Desktop/SwissTPH/conferences&presentations/Ammnet/training materials/data_malariaAtlas/Mabangata_region_incidence2018.csv")
+df<- read.csv("C:/Users/shirgl/Desktop/SwissTPH/conferences&presentations/Ammnet/training materials/data_malariaAtlas/Mabangata_region_incidence2018.csv")
 ```
 :::
+
 
 **Reading Other File Formats**
 
 ::: panel-tabset
-### excel
 
+
+
+### excel
 ```{r}
 # Load library for Excel
 # library(readxl)
@@ -136,7 +155,6 @@ When not in the same folder then copy the path/directory of the file
 ```
 
 ### Stata (Dta)
-
 ```{r}
 # Load library for Stata
 # library()
@@ -145,9 +163,13 @@ When not in the same folder then copy the path/directory of the file
 ```
 :::
 
+
 ### data manipulation to choose the data of under five and convert to date format
+
+
 
 ```{r}
 df$date_tested <- as.Date(df$date_tested,"%m/%d/%Y")
 df_und5<- df %>% filter(age_group=="u5") 
 ```
+

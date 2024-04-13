@@ -1,11 +1,9 @@
 ---
-title: "website"
+title: "Principles and Practice of Data Visualization with R"
+image: images/pic1.png
+toc: true
+toc-location: right
 ---
 
-This is a Quarto website.
+{{< include training_information.qmd >}}
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
-
-```{r}
-1 + 1
-```
