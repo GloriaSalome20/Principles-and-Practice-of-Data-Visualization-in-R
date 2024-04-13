@@ -3,29 +3,65 @@ project:
   output-dir: docs
 
 website:
-  title: "website"
+  title: "Principles and Practice of Data Visualization with R"
   navbar:
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
   sidebar:
     style: "floating"
     search: true
     contents:
-      - section: "Basics"
+      - section: "Pre-Training Task"
         contents:
-          - training_information.qmd
           - Getting_started_with_R.qmd
-      - section: "Visualization"
+      - section: "Visualization with Ggplot"
         contents:
           - Preparations_before_visualization.qmd
           - Basic_Visualization_concept.qmd
-format:
-  html:
-    theme: cosmo
-    css: styles.css
-    toc: true
 
+page-footer:
+    background: light # or dark
+    left:
+      - "This page was built by  [Quarto](https://quarto.org/). Copyright 2024, Gloria  & Amelia "
+    right:
+      - icon: github
+        href: https://github.com/
+      
+
+
+
+html:
+  theme: cosmo
+  css: styles.css
+  toc: true
+  head:
+    - "<style>"
+    - |
+      .navigation-arrows {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1000;
+      }
+      .navigation-arrows a {
+        margin: 0 10px;
+        font-size: 24px;
+        color: #fff;
+        text-decoration: none;
+        background-color: #333;
+        padding: 10px 15px;
+        border-radius: 5px;
+      }
+      .navigation-arrows a:hover {
+        background-color: #555;
+      }
+    - "</style>"
+  after_body:
+    - "<div class='navigation-arrows'>"
+    - "<a href='#training'>Previous</a>"
+    - "<a href='#getting-started'>Next</a>"
+    - "</div>"
 editor: visual
 
