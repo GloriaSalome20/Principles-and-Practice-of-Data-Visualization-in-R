@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>quarto-input8a379aa2</title>
+<title>quarto-inputf64d3013</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -81,15 +81,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#exploring-new-script-r-panes" id="toc-exploring-new-script-r-panes" class="nav-link active" data-scroll-target="#exploring-new-script-r-panes">Exploring New Script &amp; R Panes</a>
-  <ul class="collapse">
-  <li><a href="#creating-a-new-r-script" id="toc-creating-a-new-r-script" class="nav-link" data-scroll-target="#creating-a-new-r-script">Creating a new R Script</a></li>
+  <li><a href="#creating-a-new-r-script" id="toc-creating-a-new-r-script" class="nav-link active" data-scroll-target="#creating-a-new-r-script">Creating a new R Script</a></li>
   <li><a href="#understanding-r-panes" id="toc-understanding-r-panes" class="nav-link" data-scroll-target="#understanding-r-panes">Understanding R Panes</a></li>
   <li><a href="#managing-libraries" id="toc-managing-libraries" class="nav-link" data-scroll-target="#managing-libraries">Managing Libraries</a></li>
   <li><a href="#reading-data" id="toc-reading-data" class="nav-link" data-scroll-target="#reading-data">Reading data</a>
   <ul class="collapse">
   <li><a href="#data-manipulation-to-choose-the-data-of-under-five-and-convert-to-date-format" id="toc-data-manipulation-to-choose-the-data-of-under-five-and-convert-to-date-format" class="nav-link" data-scroll-target="#data-manipulation-to-choose-the-data-of-under-five-and-convert-to-date-format">data manipulation to choose the data of under five and convert to date format</a></li>
-  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -102,8 +99,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <div style="page-break-after: always;"></div>
-<section id="exploring-new-script-r-panes" class="level1">
-<h1>Exploring New Script &amp; R Panes</h1>
 <section id="creating-a-new-r-script" class="level2">
 <h2 class="anchored" data-anchor-id="creating-a-new-r-script">Creating a new R Script</h2>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -224,46 +219,7 @@ Aim:
 <p>When not in the same folder then copy the path/directory of the file</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read CSV file from a different folder</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">read.csv</span>(<span class="st">"C:/Users/shirgl/Desktop/SwissTPH/conferences&amp;presentations/Ammnet/training materials/data_malariaAtlas/Mabangata_region_incidence2018.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   date_tested age_group conf       pop  incidence
-1     1/1/2018     total  501 1929193.8  25.969397
-2     1/1/2018        u5  257  285209.8  90.109096
-3     1/1/2018       ov5  244 1643984.0  14.841994
-4     2/1/2018     total  519 1929193.8  26.902429
-5     2/1/2018        u5  266  285209.8  93.264668
-6     2/1/2018       ov5  253 1643984.0  15.389444
-7     3/1/2018     total  207 1929193.8  10.729871
-8     3/1/2018        u5  100  285209.8  35.061905
-9     3/1/2018       ov5  107 1643984.0   6.508579
-10    4/1/2018     total  481 1929193.8  24.932695
-11    4/1/2018        u5  232  285209.8  81.343620
-12    4/1/2018       ov5  249 1643984.0  15.146133
-13    5/1/2018     total  148 1929193.8   7.671598
-14    5/1/2018        u5   73  285209.8  25.595191
-15    5/1/2018       ov5   75 1643984.0   4.562088
-16    6/1/2018     total  416 1929193.8  21.563412
-17    6/1/2018        u5  209  285209.8  73.279382
-18    6/1/2018       ov5  207 1643984.0  12.591364
-19    7/1/2018     total  138 1929193.8   7.153247
-20    7/1/2018        u5   83  285209.8  29.101381
-21    7/1/2018       ov5   55 1643984.0   3.345531
-22    8/1/2018     total  386 1929193.8  20.008358
-23    8/1/2018        u5  195  285209.8  68.370715
-24    8/1/2018       ov5  191 1643984.0  11.618118
-25    9/1/2018     total 1554 1929193.8  80.551782
-26    9/1/2018        u5  869  285209.8 304.687956
-27    9/1/2018       ov5  685 1643984.0  41.667073
-28   10/1/2018     total  625 1929193.8  32.396952
-29   10/1/2018        u5  351  285209.8 123.067287
-30   10/1/2018       ov5  274 1643984.0  16.666829
-31   11/1/2018     total 1365 1929193.8  70.754944
-32   11/1/2018        u5  728  285209.8 255.250670
-33   11/1/2018       ov5  637 1643984.0  38.747336
-34   12/1/2018     total  567 1929193.8  29.390515
-35   12/1/2018        u5  304  285209.8 106.588192
-36   12/1/2018       ov5  263 1643984.0  15.997723</code></pre>
-</div>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"C:/Users/shirgl/Desktop/SwissTPH/conferences&amp;presentations/Ammnet/training materials/data_malariaAtlas/Mabangata_region_incidence2018.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -274,18 +230,18 @@ Aim:
 <div class="tab-content">
 <div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load library for Excel</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># library(readxl)</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Read Excel file</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># read_excel()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load library for Excel</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># library(readxl)</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Read Excel file</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># read_excel()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load library for Stata</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># library()</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Read Stata file</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># read.dta()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load library for Stata</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># library()</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Read Stata file</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># read.dta()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -293,10 +249,9 @@ Aim:
 <section id="data-manipulation-to-choose-the-data-of-under-five-and-convert-to-date-format" class="level3">
 <h3 class="anchored" data-anchor-id="data-manipulation-to-choose-the-data-of-under-five-and-convert-to-date-format">data manipulation to choose the data of under five and convert to date format</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>date_tested <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(df<span class="sc">$</span>date_tested,<span class="st">"%m/%d/%Y"</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df_und5<span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(age_group<span class="sc">==</span><span class="st">"u5"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>date_tested <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(df<span class="sc">$</span>date_tested,<span class="st">"%m/%d/%Y"</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>df_und5<span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(age_group<span class="sc">==</span><span class="st">"u5"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
 </section>
 </section>
 

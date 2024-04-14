@@ -1,10 +1,10 @@
 ---
-title: " "
+title: "Visualization "
 format:
   html:
     smooth-scroll: true
     toc: true
-    toc-location: left
+    toc-location: right
     number-sections: false
     number-depth: 2
     css: styles.css
@@ -137,6 +137,7 @@ When not in the same folder then copy the path/directory of the file
 # Read CSV file from a different folder
 df<- read.csv("C:/Users/shirgl/Desktop/SwissTPH/conferences&presentations/Ammnet/training materials/data_malariaAtlas/Mabangata_region_incidence2018.csv")
 ```
+
 :::
 
 
@@ -157,10 +158,11 @@ df<- read.csv("C:/Users/shirgl/Desktop/SwissTPH/conferences&presentations/Ammnet
 ### Stata (Dta)
 ```{r}
 # Load library for Stata
-# library()
+# library(haven)
 # Read Stata file
 # read.dta()
 ```
+
 :::
 
 

@@ -1,10 +1,10 @@
 ---
-title: " "
+title: "Training Information "
 format:
   html:
     smooth-scroll: true
     toc: true
-    toc-location: left
+    toc-location: right
     number-sections: false
     number-depth: 2
     css: styles.css
@@ -19,19 +19,18 @@ The goal of this workshop is to equip participants with the ability to recognize
 
 ## Venue
 
-The workshop takes place at **.. Hotel**. The conference room is **... Hall**.
+The workshop takes place at the **Kigali Marriott Hotel in Kigali, Rwanda on the 19th April**.
 
 ## Before the workshop
 
 Please try to have these installed before the training, if you have any trouble installing we will have a station on 18th April where you can come for assistance (The steps migt take approximately 15 minutes).
+         
+a.  [Install R](https://gloriasalome20.github.io/Principles-and-Practice-of-Data-Visualization-in-R/Getting_started_with_R.html#installing-r)
 
-```         
-a.  [Install R]( )
+b.  [Install and setup RStudio Desktop](https://gloriasalome20.github.io/Principles-and-Practice-of-Data-Visualization-in-R/Getting_started_with_R.html#install-and-setup-rstudio-desktop)
 
-b.  [Install and setup RStudio Desktop]( )
+c.  [libraries](https://gloriasalome20.github.io/Principles-and-Practice-of-Data-Visualization-in-R/Getting_started_with_R.html#installing-r-packages)
 
-c.  [libraries]( )
-```
 
 ::: callout-tip
 ### note
@@ -52,17 +51,17 @@ c.  [libraries]( )
 | 15min before | Welcome\                                        |          |
 |              | Support for software installation               |          |
 +--------------+-------------------------------------------------+----------+
-| 15min        | Introduction to data Visualization presentation |          |
+| 9:30 - 9:50  | Introduction to data Visualization presentation |          |
 +--------------+-------------------------------------------------+----------+
-| 30min        | Introduction to R Studio, Reading Data, GGplot  |          |
+| 9:50-10:20   | Introduction to R Studio, Reading Data, GGplot  |          |
 +--------------+-------------------------------------------------+----------+
-| 30min        | coffee Break                                    |          |
+| 10:20-11:00  |  Line Plot, Scatter Plots and Exercise          |          |
 +--------------+-------------------------------------------------+----------+
-| 50min        | Line Plot, Scatter Plots and Exercise           |          |
+| 30min        |  coffee Break                                   |          |
 +--------------+-------------------------------------------------+----------+
-| 30min        | combination of line and Scatter & Exercise      |          |
+| 11:30-12:10  | combination of line and Scatter & Exercise      |          |
 +--------------+-------------------------------------------------+----------+
-| 20min        | Winding up session & survey filling             |          |
+| 12:10-13:00  | Winding up session & survey filling             |          |
 +--------------+-------------------------------------------------+----------+
 
 : Overview Schedule {#tbl-training-schedule}
@@ -71,4 +70,5 @@ c.  [libraries]( )
 
 ## After the workshop
 
-1.  Fill out the online post-workshop questionnaire (link to be provided after the workshop)
+1.  Fill out the online post-workshop questionnaire 
+![](images/survey.png)

@@ -1,9 +1,5 @@
 ---
-title: "Principles and Practice of Data Visualization with R"
-image: images/pic1.png
-toc: true
-toc-location: right
+title: "Principles-and-Practice-of-Data-Visualization-in-R"
 ---
 
 {{< include training_information.qmd >}}
-
