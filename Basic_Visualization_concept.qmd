@@ -13,6 +13,14 @@ execute:
   warning: false
 ---
 
+```{r}
+library(tidyverse)
+df <- read.csv("Mabangata_region_incidence2018.csv")
+df$date_tested <- as.Date(df$date_tested,"%m/%d/%Y")
+df_und5<- df %>% filter(age_group=="u5") 
+```
+
+
 # Main objective
 
 At the end of the training we intend to know how to produce this plot
@@ -36,9 +44,9 @@ The ggplot library is a powerful tool for creating data visualizations in R. It 
 ::: callout-tip
 ### Aim:
 
-* Learn about the layered approach of ggplot.
+-   Learn about the layered approach of ggplot.
 
-* Understand how each layer adds elements to the plot.
+-   Understand how each layer adds elements to the plot.
 :::
 
 ggplot operates on a layered grammar of graphics, where you start with a base plot and add layers of data, aesthetics, and geometries. Each layer in ggplot adds a different aspect to the plot, allowing you to customize and enhance the visualization.
@@ -89,10 +97,9 @@ ggplot(data=df_und5, aes(x=date_tested, y=incidence)) +
 ::: callout-tip
 ### Aim:
 
-* Understand the role of the aes function in ggplot.
+-   Understand the role of the aes function in ggplot.
 
-* Learn when to use aes to map variables to aesthetics.
-
+-   Learn when to use aes to map variables to aesthetics.
 :::
 
 The aes() function is used to map variables to aesthetic properties such as x and y axes, colors, shapes, etc.
@@ -111,20 +118,16 @@ ggplot(data = df, aes(x = date_tested, y = incidence)) +
     geom_point()
 ```
 
-
 ```{r}
 ggplot(data = df, aes(y = date_tested, x = incidence)) +
     geom_point()
 ```
 
-
 ::: callout-tip
 ### Tutorial:
+
 show a scatter plot with y axis being confirmed cases (conf) and x axis being dates
 :::
-
-
-
 
 ### inside and outside the eas
 
@@ -133,12 +136,10 @@ ggplot(data = df, aes(x = date_tested, y = incidence),color = "green") +
   geom_point( )
 ```
 
-
 ```{r}
 ggplot(data = df, aes(x = date_tested, y = incidence)) +
   geom_point(color = "green" )
 ```
-
 
 ```{r}
 ggplot(data = df, aes(x = date_tested, y = incidence,color = "blue")) +
@@ -147,9 +148,9 @@ ggplot(data = df, aes(x = date_tested, y = incidence,color = "blue")) +
 
 ::: callout-tip
 ### Tutorial:
+
 change the incidence scatter plot to color blue
 :::
-
 
 ```{r}
 ggplot(data = df, aes(x = date_tested, y = incidence),color = age_group) +
@@ -167,13 +168,11 @@ ggplot(data = df, aes(x = date_tested, y = conf, color = age_group)) +
 ```
 
 ::: callout-tip
-
 ### Tutorial:
-Produce the following plot: 
 
-![](images/out2.png)
-(Hint : data - df, y = confirmed cases,  x = date_tested)
+Produce the following plot:
 
+![](images/out2.png) (Hint : data - df, y = confirmed cases, x = date_tested)
 :::
 
 when the color option is not categorical but numeric then it indicates the level
@@ -182,21 +181,18 @@ when the color option is not categorical but numeric then it indicates the level
 ggplot(data = df_und5, aes(x = date_tested, y = incidence, color = incidence)) +
   geom_point()
 ```
-
-
 :::
-
 
 ## Creating a Line Plot
 
 ::: callout-tip
 ### Aim:
 
-* Create a basic line plot using ggplot.
+-   Create a basic line plot using ggplot.
 
-* Elaborate the additional group=1 aesthetic
+-   Elaborate the additional group=1 aesthetic
 
-* Explore customization options by adjusting line properties such as size, color, and line type.
+-   Explore customization options by adjusting line properties such as size, color, and line type.
 :::
 
 ::: panel-tabset
@@ -206,11 +202,11 @@ ggplot(data = df_und5, aes(x = date_tested, y = incidence, color = incidence)) +
 ggplot(data = df_und5, aes(x = date_tested, y = incidence)) +
     geom_line( )
 ```
+
 ```{r}
 ggplot(data = df_und5, aes(x = date_tested, y = conf)) +
     geom_line( )
 ```
-
 
 ## customize the line
 
@@ -233,20 +229,15 @@ We specify the x-axis variable (*date_tested*) and the y-axis variable (*inciden
 You can customize various aspects of the line plot using arguments within the *geom_line()* function. For example, you can change the size of the line, its color, and even its line type ("blank", "solid", "dashed", "dotted", "dotdash", "longdash", and "twodash"). These customizations help to improve the readability and aesthetics of the plot.
 
 ::: callout-tip
-
 ### Tutorial:
 
 Write a code snippet to create a basic line plot to visualize population, then customize the appearance of the line color to a red dashed line (Hint: use a df_und5 data).
-
 :::
 
-
-
 ::: callout-tip
-
 ### Back to Layering
-On changing the size of line to see how points cant be visible
 
+On changing the size of line to see how points cant be visible
 
 ```{r}
 ggplot(data=df_und5, aes(x=date_tested, y=incidence)) +
@@ -255,9 +246,7 @@ ggplot(data=df_und5, aes(x=date_tested, y=incidence)) +
 
 ```
 
-
 on the improvement of the previous then
-
 
 ```{r}
 layered<- ggplot(data= df_und5,aes(x=date_tested,y=incidence))+
@@ -265,12 +254,7 @@ layered<- ggplot(data= df_und5,aes(x=date_tested,y=incidence))+
   geom_point()
 layered
 ```
-
 :::
-
-
-
-
 
 ## Creating a Scatter Plot
 
@@ -280,12 +264,9 @@ layered
 Understand the structure of a scatter plot using ggplot.
 
 Adjust point properties such as color, size, and transparency.
-
 :::
 
-
 ::: panel-tabset
-
 ## simple scatter plot
 
 ```{r}
@@ -300,9 +281,7 @@ ggplot(data=df_und5, aes(x=date_tested, y= incidence)) +
   geom_point(colour="blue",size=3.2,alpha=0.9, shape=2)
 ```
 
-
 being specific according to your data when customizing
-
 
 ```{r}
 ggplot(data=df,aes(x=date_tested,y=incidence))+
@@ -310,12 +289,10 @@ ggplot(data=df,aes(x=date_tested,y=incidence))+
 
 ```
 
-
 ```{r}
 ggplot(data=df,aes(x=date_tested,y=incidence))+
   geom_point(aes(size=incidence,shape=age_group))
 ```
-
 :::
 
 Scatter plots are useful for visualizing the relationship between two continuous variables.
@@ -327,12 +304,11 @@ You can customize various aspects of the scatter plot points using arguments wit
 ::: callout-tip
 ### Tutorial:
 
-1. Write a code snippet to create a scatter plot as shown in the image below. (Hint: use the df dataset with changing color aesthentic) 
+1.  Write a code snippet to create a scatter plot as shown in the image below. (Hint: use the df dataset with changing color aesthentic)
 
 ![](images/out1.png)
 
-2. Create a scatter plot for confirmed cases in the Y axis and date_tested x axis with shapes of age_group and size of confirmed cases
-
+2.  Create a scatter plot for confirmed cases in the Y axis and date_tested x axis with shapes of age_group and size of confirmed cases
 :::
 
 ## combination of line and scatter plot
@@ -355,13 +331,12 @@ ggplot(data=df_und5, aes(x=date_tested, y= incidence))+
 ::: callout-tip
 ### Tutorial:
 
-1. Write a code snippet to create a combined plot showing confirmed cases. (Adjust the color of points to green and line to dashed)
+1.  Write a code snippet to create a combined plot showing confirmed cases. (Adjust the color of points to green and line to dashed)
 
-2. Replicate the following plot
+2.  Replicate the following plot
 
 ![](images/out3.png)
 :::
-
 
 ## Customizing plots for presentation and publication purpose
 
@@ -386,7 +361,6 @@ ggplot(data=df_und5, aes(x=date_tested, y= incidence))+
   scale_x_date(date_breaks = "1 month", date_labels = "%B")
 
 ```
-
 
 ::: callout-tip
 ### Tutorial:
