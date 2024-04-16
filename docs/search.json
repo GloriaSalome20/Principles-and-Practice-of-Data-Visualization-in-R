@@ -235,35 +235,35 @@
     "href": "training_information.html",
     "title": "Training Information",
     "section": "",
-    "text": "The goal of this workshop is to equip participants with the ability to recognize and produce data visualizations in accordance with the best practices of the field. Looking forward to meeting you all!\n\n\nThe workshop takes place at the Kigali Marriott Hotel in Kigali, Rwanda on the 19th April.\n\n\n\nPlease try to have these installed before the training, if you have any trouble installing we will have a station on 18th April where you can come for assistance (The steps migt take approximately 15 minutes).\n\nInstall R\nInstall and setup RStudio Desktop\nlibraries\n\n\n\n\n\n\n\nnote\n\n\n\n\nAll software used in this workshop are free.\nIf you have any difficulties with the installation, support can be provided on the first day of the AMMnet meeting or before the session or during breaks.\n\n\n\n\n\n\n\n\n\n\n\n\nTable 1: Overview Schedule\n\n\n\n\n\n\n\nTime\nSession\n\n\n\n\n\n15min before\nWelcome\nSupport for software installation\n\n\n\n9:30 - 9:50\nIntroduction to data Visualization presentation\n\n\n\n9:50-10:20\nIntroduction to R Studio, Reading Data, GGplot\n\n\n\n10:20-11:00\nLine Plot, Scatter Plots and Exercise\n\n\n\n30min\ncoffee Break\n\n\n\n11:30-12:10\ncombination of line and Scatter & Exercise\n\n\n\n12:10-13:00\nWinding up session & survey filling\n\n\n\n\n\n\n\n\n\n\nFill out the online post-workshop questionnaire"
+    "text": "The goal of this workshop is to equip participants with the ability to recognize and produce data visualizations in accordance with the best practices of the field. Looking forward to meeting you all!"
   },
   {
     "objectID": "training_information.html#venue",
     "href": "training_information.html#venue",
     "title": "Training Information",
-    "section": "",
-    "text": "The workshop takes place at the Kigali Marriott Hotel in Kigali, Rwanda on the 19th April."
+    "section": "Venue",
+    "text": "Venue\nThe workshop takes place at the Kigali Marriott Hotel in Kigali, Rwanda on April 19th 2024. We will begin at 9:30am and finish at 1pm (see schedule below). If you have had any trouble with software installation, please arrive 15 minutes prior to the beginning of the session so we can assist you."
   },
   {
     "objectID": "training_information.html#before-the-workshop",
     "href": "training_information.html#before-the-workshop",
     "title": "Training Information",
-    "section": "",
-    "text": "Please try to have these installed before the training, if you have any trouble installing we will have a station on 18th April where you can come for assistance (The steps migt take approximately 15 minutes).\n\nInstall R\nInstall and setup RStudio Desktop\nlibraries\n\n\n\n\n\n\n\nnote\n\n\n\n\nAll software used in this workshop are free.\nIf you have any difficulties with the installation, support can be provided on the first day of the AMMnet meeting or before the session or during breaks."
+    "section": "Before the Workshop",
+    "text": "Before the Workshop\nPlease try to have these installed before the training, if you have any trouble installing we will have a station on 18th April where you can come for assistance (The steps might take approximately 15 minutes).\n\nInstall R\nInstall and Setup RStudio Desktop\nInstall Libraries\n\n\n\n\n\n\n\nNote\n\n\n\n\nAll software used in this workshop is free.\nIf you have any difficulties with the installation, support can be provided on the first day of the AMMnet meeting, before the session, during breaks."
   },
   {
     "objectID": "training_information.html#friday-april-19th",
     "href": "training_information.html#friday-april-19th",
     "title": "Training Information",
-    "section": "",
-    "text": "Table 1: Overview Schedule\n\n\n\n\n\n\n\nTime\nSession\n\n\n\n\n\n15min before\nWelcome\nSupport for software installation\n\n\n\n9:30 - 9:50\nIntroduction to data Visualization presentation\n\n\n\n9:50-10:20\nIntroduction to R Studio, Reading Data, GGplot\n\n\n\n10:20-11:00\nLine Plot, Scatter Plots and Exercise\n\n\n\n30min\ncoffee Break\n\n\n\n11:30-12:10\ncombination of line and Scatter & Exercise\n\n\n\n12:10-13:00\nWinding up session & survey filling"
+    "section": "Friday April 19th",
+    "text": "Friday April 19th\n\n\n\n\n\n\n\n\nTime\nSession\n\n\n\n\n\n15min before\nWelcome\nSupport for software installation\n\n\n\n9:30 - 9:50\nIntroduction to Data Visualization\n\n\n\n9:50-10:20\nIntroduction to RStudio, Reading Data, GGplot\n\n\n\n10:20-11:00\nLine Plots and Scatter Plots\n\n\n\n11-11:30\nCoffee Break\n\n\n\n11:30-12:10\nCombined Plot Types, Customizing Plots\n\n\n\n12:10-13:00\nConclusion and Survey"
   },
   {
     "objectID": "training_information.html#after-the-workshop",
     "href": "training_information.html#after-the-workshop",
     "title": "Training Information",
-    "section": "",
-    "text": "Fill out the online post-workshop questionnaire"
+    "section": "After the Workshop",
+    "text": "After the Workshop\nFill out the online post-workshop questionnaire"
   },
   {
     "objectID": "Getting_started_with_R.html",
@@ -327,5 +327,12 @@
     "title": "Training Information",
     "section": "",
     "text": "Fill out the online post-workshop questionnaire"
+  },
+  {
+    "objectID": "training_information.html#schedule",
+    "href": "training_information.html#schedule",
+    "title": "Training Information",
+    "section": "Schedule",
+    "text": "Schedule\n\n\n\n\n\n\n\n\nTime\nSession\n\n\n\n\n\n9:15-9:30\nWelcome\nSupport for software installation\n\n\n\n9:30 - 9:50\nIntroduction to Data Visualization\n\n\n\n9:50-10:20\nIntroduction to RStudio, Reading Data, GGplot\n\n\n\n10:20-11:00\nLine Plots and Scatter Plots\n\n\n\n11-11:30\nCoffee Break\n\n\n\n11:30-12:10\nCombined Plot Types, Customizing Plots\n\n\n\n12:10-13:00\nConclusion and Survey"
   }
 ]
