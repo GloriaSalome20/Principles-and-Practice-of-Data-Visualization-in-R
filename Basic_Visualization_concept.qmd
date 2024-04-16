@@ -27,16 +27,16 @@ At the end of the training we will be able to produce this plot:
 
 ```{r}
 ggplot(data=df,aes(x=date_tested, y= incidence))+
-  geom_line(size=1.5,aes(color=age_group)) +
-  geom_point( size=1.2)+
+  geom_line(aes(color=age_group)) +
+  geom_point()+
   labs(x="Month", 
        y="Incidence (Cases/100,000)",
-       title="Malaria Incidence, Mabangata, 2018",
-       color="Age Group") +
-  theme_bw()+
-  theme(plot.title = element_text(hjust=0.5),
-        axis.text.x = element_text(angle=45,hjust=1)) +
-  scale_x_date(date_breaks = "1 month", date_labels = "%B")
+       title="Malaria Incidence, Mabangata Region, 2018",
+       colour="Age Group") +
+  theme_bw() 
+  # theme(plot.title = element_text(hjust=0.5),
+  #       axis.text.x = element_text(angle=45,hjust=1)) +
+  # scale_x_date(date_breaks = "1 month", date_labels = "%B")
 ```
 
 ## `ggplot2`: A Layered Approach to Plotting
@@ -134,7 +134,7 @@ ggplot(data=df_und5, aes(x=date_tested, y=incidence)) +
 
 
 ::: callout-tip
-### Layering Exercise
+### Exercise
 
 Change the code below so that the orange points are in front of the blue lines. Watch out for any missing or dangling `+` signs!
 
@@ -143,6 +143,15 @@ ggplot(data=df_und5, aes(x=date_tested, y=incidence)) +
   geom_point(colour="orange", size=4) + 
   geom_line(colour="blue", size=2) 
 ```
+
+### Solution
+```{r}
+ggplot(data=df_und5, aes(x=date_tested, y=incidence)) +
+  geom_line(colour="blue", size=2) +
+  geom_point(colour="orange", size=4)  
+  
+```
+
 :::
 
 
@@ -168,7 +177,7 @@ ggplot(data=df_und5, aes(x=date_tested, y=incidence)) +
   geom_line(colour="blue", size=2) 
 
 ggplot(data=df_und5, aes(x=date_tested, y=incidence)) +
-  geom_point(colour="red", size=3)  
+  geom_point(colour="blue", size=2)  
 
 ```
 
@@ -188,7 +197,7 @@ ggplot(data = df_und5, aes(x = date_tested, y = incidence))+
 ```{r}
 
 ggplot(data = df_und5, aes(x = date_tested, y = incidence))+ 
-  geom_line(colour="blue",size=2,linetype="dotted")
+  geom_line(colour="red",size=3,linetype="dotted")
 ```
 
 ## `shape` for Points
@@ -197,7 +206,7 @@ Shapes can take any number from 1 to 25.
 
 ```{r}
 ggplot(data = df_und5, aes(x = date_tested, y = incidence))+ 
-  geom_point(colour="red", size=3, shape=2)
+  geom_point(colour="blue", size=2, shape=2)
 ```
 
 ```{r}
@@ -277,162 +286,196 @@ ggplot(data = df_und5, aes(x = incidence, y = date_tested,)) +
 ```{r}
 ggplot(data = df_und5, aes(x = date_tested, y = pop)) +
     geom_point()
-
 ```
 
 :::
 
 
 ::: callout-tip
-### `x` and `y` Exercise
+### Exercise
 
 Create a scatter plot using the `df_und5` dataset, with date (`date_tested`) on the x axis and  confirmed cases (`conf`) on the y axis.
+
+### Solution
+```{r}
+ggplot(data = df_und5, aes(x = date_tested, y = conf)) +
+    geom_point()
+```
+
 :::
 
 
 ### Color
 
-::: panel-tabset
-### inside and outside the eas
-
-```{r}
-ggplot(data = df, aes(x = date_tested, y = incidence),color = "green") +
-  geom_point( )
-```
+To understand mappings beyond `x` and `y`, let's move away from the `df_und5` dataset and start using the full `df` dataset. We can start with a simple scatter plot:
 
 ```{r}
 ggplot(data = df, aes(x = date_tested, y = incidence)) +
-  geom_point(color = "green" )
-```
-
-```{r}
-ggplot(data = df, aes(x = date_tested, y = incidence,color = "blue")) +
   geom_point( )
 ```
 
-::: callout-tip
-### Tutorial:
+Now, instead of a single time series, we have three time series: one for each age group. But it's hard to differentiate them right now because they're all the same shape and size. It would be nice if we could make each age group a different color, using the `age_group` column name. How do you think we could do this?
 
-change the incidence scatter plot to color blue
-:::
-
-```{r}
-ggplot(data = df, aes(x = date_tested, y = incidence),color = age_group) +
-  geom_point( )
+Let's try a few options:
+```
+ggplot(data = df, aes(x = date_tested, y = incidence)) +
+  geom_point(colour=age_group)
 ```
 
-```{r}
-ggplot(data = df, aes(x = date_tested, y = incidence, color = age_group)) +
-  geom_point()
+```
+ggplot(data = df, aes(x = date_tested, y = incidence)) +
+  geom_point(colour="age_group")
 ```
 
-```{r}
-ggplot(data = df, aes(x = date_tested, y = conf, color = age_group)) +
-  geom_point()
-```
-
-::: callout-tip
-### Tutorial:
-
-Produce the following plot:
-
-![](images/out2.png) (Hint : data - df, y = confirmed cases, x = date_tested)
-:::
-
-when the color option is not categorical but numeric then it indicates the level
+Neither of these works, because we are *mapping* a variable in our dataset to a feature of our plot (here, color). So we need to put color inside an `aes()` function within our geom:
 
 ```{r}
-ggplot(data = df_und5, aes(x = date_tested, y = incidence, color = incidence)) +
-  geom_point()
+ggplot(data = df, aes(x = date_tested, y = incidence)) +
+  geom_point(aes(colour=age_group))
 ```
-:::
+
+A ton of cool things just happened! Ggplot turned each age group a different color, picked some nice default colors, and gave us a helpful legend. We can do the same with a line plot:
+
+```{r}
+ggplot(data = df, aes(x = date_tested, y = incidence)) +
+  geom_line(aes(colour=age_group))
+```
 
 
+### Other Aesthetics
 
-
-## Scatter Plots
-
-::: callout-tip
-### Aim:
-
-Understand the structure of a scatter plot using ggplot.
-
-Adjust point properties such as color, size, and transparency.
-:::
+We can take any of the variables we used outside of `aes` and map them to variables inside of `aes`:
 
 ::: panel-tabset
-## simple scatter plot
+### Color
 
 ```{r}
-ggplot(data=df_und5, aes(x=date_tested, y= incidence))+ 
-  geom_point()
+ggplot(data = df, aes(x = date_tested, y = incidence)) +
+  geom_point(aes(colour=age_group))
 ```
 
-## customize the points
-
-```{r}
-ggplot(data=df_und5, aes(x=date_tested, y= incidence)) + 
-  geom_point(colour="blue",size=3.2,alpha=0.9, shape=2)
-```
-
-being specific according to your data when customizing
+### Shape
 
 ```{r}
 ggplot(data=df,aes(x=date_tested,y=incidence))+
   geom_point(aes(shape=age_group))
-
 ```
+
+### Size
 
 ```{r}
 ggplot(data=df,aes(x=date_tested,y=incidence))+
-  geom_point(aes(size=incidence,shape=age_group))
+  geom_point(aes(size=age_group))
 ```
-:::
 
-Scatter plots are useful for visualizing the relationship between two continuous variables.
-
-In this example, we're using the geom_point() geometry to create a scatter plot.Each point represents a single data observation, with one variable plotted against the other.
-
-You can customize various aspects of the scatter plot points using arguments within the geom_point() function.For example, you can change the color, size, and transparency of the points to highlight certain patterns or trends in the data.
-
-::: callout-tip
-### Tutorial:
-
-1.  Write a code snippet to create a scatter plot as shown in the image below. (Hint: use the df dataset with changing color aesthentic)
-
-![](images/out1.png)
-
-2.  Create a scatter plot for confirmed cases in the Y axis and date_tested x axis with shapes of age_group and size of confirmed cases
-:::
-
-## Layering Line and Scatter Plots
-
-::: callout-tip
-### Aim:
-
-Understand how to combine line and scatter plots in ggplot. Visualize trends and individual data points simultaneously.
-:::
-
-Combining line and scatter plots allows you to display both trend information (through the line) and individual data points (through the scatter). This is useful for scenarios where you want to show both the overall trend and the variability of the data points around that trend.
+### Linetype
 
 ```{r}
-##line and point
-ggplot(data=df_und5, aes(x=date_tested, y= incidence))+
-  geom_line(size=1,colour="red")+
-  geom_point(colour="blue",size=3.2,alpha=1.7, shape=2)
+ggplot(data=df,aes(x=date_tested,y=incidence))+
+  geom_line(aes(linetype=age_group))
 ```
 
+:::
+
 ::: callout-tip
-### Tutorial:
+### Exercise:
 
-1.  Write a code snippet to create a combined plot showing confirmed cases. (Adjust the color of points to green and line to dashed)
+Create the following plot:
+![](images/line_size_exercise.png)
 
-2.  Replicate the following plot
+### Solution:
+```{r}
+ggplot(data=df,aes(x=date_tested,y=incidence))+
+  geom_line(aes(size=age_group))
+```
 
-![](images/out3.png)
 :::
 
 
+::: callout-tip
+## Note
+
+When you map a color to a continuous variable instead of a categorical one, the color scheme changes to something continuous:
+
+```{r}
+ggplot(data = df, aes(x = date_tested, y = incidence, color = incidence)) +
+  geom_point()
+```
+
+There are many, many ways to customize the colors of your plots. Going into detail is beyond the scope of this workshop.
+:::
+
+
+
+## Mixing and Matching Aesthetics
+
+You can put multiple aesthetics inside of one `aes` function:
+
+::: panel-tabset
+## Same Variable
+
+```{r}
+ggplot(data=df,aes(x=date_tested,y=incidence))+
+  geom_point(aes(size=age_group, colour=age_group))
+```
+
+## Different Variables
+
+```{r}
+ggplot(data=df,aes(x=date_tested,y=incidence))+
+  geom_point(aes(size=incidence, shape=age_group))
+```
+
+## Different Variables in Different `geom`s
+
+```{r}
+ggplot(data=df,aes(x=date_tested,y=incidence)) +
+  geom_line(aes(colour=age_group)) +
+  geom_point(aes(size=incidence, shape=age_group))
+```
+::: callout-tip
+### Exercise:
+
+In the plot above, why are the points black instead of in color?
+
+:::
+
+:::
+
+
+::: callout-tip
+### Exercise:
+
+1.  Write a code snippet to create the following plot:
+
+![](images/mixed_aes_exercise_1.png)
+
+
+### Solution
+```{r}
+ggplot(data=df,aes(x=date_tested,y=incidence)) +
+  geom_line(aes(linetype=age_group)) +
+  geom_point(aes(color=age_group))
+```
+
+:::
+
+::: callout-tip
+### Exercise:
+
+1.  Write a code snippet to create the following plot:
+
+![](images/mixed_aes_exercise_2.png)
+
+
+### Solution
+```{r}
+ggplot(data=df,aes(x=date_tested,y=incidence)) +
+  geom_line(aes(color=age_group)) +
+  geom_point()
+```
+
+:::
 
 
 
@@ -440,30 +483,87 @@ ggplot(data=df_und5, aes(x=date_tested, y= incidence))+
 
 ::: callout-tip
 ### Aim:
-
 Learn how to customize plots for presentation and publication. Adjust plot elements such as titles, labels, themes, and scales.
 :::
+
+With our last exercise, we almost created our goal plot for the session:
+```{r}
+ggplot(data=df,aes(x=date_tested,y=incidence)) +
+  geom_line(aes(color=age_group)) +
+  geom_point()
+```
+
+All that's left to do is adjust the themes and labeling. 
 
 Customizing plots is essential for making them more visually appealing and informative for presentation or publication.
 
 Elements such as titles, axis labels, and themes can be customized to enhance readability and aesthetics. Scales can be adjusted to ensure that the data is displayed in a clear and meaningful way.
 
-```{r}
-ggplot(data=df_und5, aes(x=date_tested, y= incidence))+
-  geom_point(colour="blue", size=3.2)+
-  geom_line()+
-  labs(x="Date",y="Incidence for 100000/month",title="Malaria Incidence in Mabangata region,2018")+
-  theme_bw()+
-  theme(plot.title = element_text(hjust=0.5),
-        axis.text.x=element_text(angle=45,hjust=1))+
-  scale_x_date(date_breaks = "1 month", date_labels = "%B")
+::: panel-tabset
+## Theme
 
+There are a number of different built-in themes you can select to modify the background color and overall appearance of your plot.
+
+```{r}
+ggplot(data=df,aes(x=date_tested, y= incidence))+
+  geom_line(aes(color=age_group)) +
+  geom_point() +
+  theme_dark()
 ```
 
-::: callout-tip
-### Tutorial:
+```{r}
+ggplot(data=df,aes(x=date_tested, y= incidence))+
+  geom_line(aes(color=age_group)) +
+  geom_point() +
+  theme_bw()
+```
 
-create the following plot
+## Title and Axis Labels
 
-![](images/out4.png)
+You can use the `labs` function to modify the axis labels, legend labels, and title:
+
+```{r}
+ggplot(data=df,aes(x=date_tested, y= incidence))+
+  geom_line(aes(color=age_group)) +
+  geom_point() +
+  labs(x="Month", 
+       y="Incidence") 
+```
+
+```{r}
+ggplot(data=df,aes(x=date_tested, y= incidence))+
+  geom_line(aes(color=age_group)) +
+  geom_point() +
+  labs(x="Month", 
+       y="Incidence",
+       title="Malaria 2018",
+       color="Age Group") 
+```
+
 :::
+
+
+::: callout-tip
+### Exercise:
+
+Create the following plot:
+
+![](images/final_image.png)
+
+
+### Solution
+```{r}
+ggplot(data=df,aes(x=date_tested, y= incidence))+
+  geom_line(aes(color=age_group)) +
+  geom_point()+
+  labs(x="Month", 
+       y="Incidence (Cases/100,000)",
+       title="Malaria Incidence, Mabangata Region, 2018",
+       colour="Age Group") +
+  theme_bw() 
+```
+:::
+
+And there it is! We've gone from a set of numbers on a page to a nice, polished figure ready for a presentation. 
+
+We've only scratched the surface of what you can do with `ggplot2` today, but we hope we've given you a strong basis and you'll be able to learn more in the future!
