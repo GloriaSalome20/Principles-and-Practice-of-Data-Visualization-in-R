@@ -1,5 +1,5 @@
 ---
-title: "Basic Visualization concept "
+title: "Making Plots with `ggplot2`"
 format:
   html:
     smooth-scroll: true
@@ -21,78 +21,132 @@ df_und5<- df %>% filter(age_group=="u5")
 ```
 
 
-# Main objective
+## Main Objective
 
-At the end of the training we intend to know how to produce this plot
+At the end of the training we will be able to produce this plot:
 
 ```{r}
 ggplot(data=df,aes(x=date_tested, y= incidence))+
-  geom_line(size=1.5,aes(group=age_group ,col =age_group)) +
+  geom_line(size=1.5,aes(color=age_group)) +
   geom_point( size=1.2)+
-  labs(x="Date",y="incidence for 100000/month",title="Mabangata Malaria Incidence,2018")+
+  labs(x="Month", 
+       y="Incidence (Cases/100,000)",
+       title="Malaria Incidence, Mabangata, 2018",
+       color="Age Group") +
   theme_bw()+
-  theme(plot.title = element_text(hjust=0.5), axis.text.x = element_text(angle=45,hjust=1))+
+  theme(plot.title = element_text(hjust=0.5),
+        axis.text.x = element_text(angle=45,hjust=1)) +
   scale_x_date(date_breaks = "1 month", date_labels = "%B")
 ```
 
-# Understanding ggplot Library
-
-The ggplot library is a powerful tool for creating data visualizations in R. It follows a layered approach to building plots, where each layer adds additional elements to the plot. Understanding how ggplot works can help you create sophisticated and informative visualizations.
-
-## Layers in ggplot
+## `ggplot2`: A Layered Approach to Plotting
 
 ::: callout-tip
 ### Aim:
-
 -   Learn about the layered approach of ggplot.
-
 -   Understand how each layer adds elements to the plot.
 :::
 
-ggplot operates on a layered grammar of graphics, where you start with a base plot and add layers of data, aesthetics, and geometries. Each layer in ggplot adds a different aspect to the plot, allowing you to customize and enhance the visualization.
+The `ggplot` library is a powerful tool for creating data visualizations in R. It follows a layered approach to building plots, where each layer adds additional elements to the plot. Understanding how ggplot works can help you create sophisticated and informative visualizations.
+
+In ggplot, you start with a base plot and add layers called "geometries", or `geom`s. Each layer in ggplot adds a different aspect to the plot, allowing you to customize and enhance the visualization. Once geoms have been added, labels and other customizations can be added in a similar way.
 
 ::: panel-tabset
-### base plot
+
+### Base Plot: No Information
+
+Every plot in ggplot starts with the function `ggplot`. With no additional information about what to display, it will simply show a grey box:
 
 ```{r}
-base_plot <- ggplot(data = df_und5, aes(x = date_tested, y = incidence))
-base_plot
+ggplot()
 ```
 
-### Adding points
+### Base Plot: With Data
+
+The ggplot function must include an argument to the dataset we want to plot. Here, we specify that we want to use the `df_und5` dataset. But because we have not told the function *which* columns to plot, it will still only show a grey box:
 
 ```{r}
-layered_plot <- ggplot(data=df_und5, aes(x=date_tested, y=incidence)) +
+ggplot(data = df_und5)
+```
+
+
+### Base Plot: With `x` and `y`
+
+Let's say we want to plot the `date_tested` and `incidence` columns, with `date_tested` on the x axis and `incidence` on the y axis. For this, we have to use a function called `aes()`. We'll explain it later, but for now just type in the code. Now, on top of our grey box, there is a layer showing some line breaks and labels mapping our x and y variables. Progress!
+
+```{r}
+ggplot(data = df_und5, aes(x = date_tested, y = incidence))
+```
+
+### Adding Points
+
+Now we're finally ready to add shapes to our plot using `geom`s. If we want to represent this data using *points* we use the function `geom_point()`:
+
+```{r}
+ggplot(data=df_und5, aes(x=date_tested, y=incidence)) +
   geom_point()
-layered_plot
 ```
 
-### Adding line
+### Adding Lines
+
+As an additional layer on top of this, we use the function `geom_line()` to add a line plot:
 
 ```{r}
 ggplot(data=df_und5, aes(x=date_tested, y=incidence)) +
   geom_point() +
-  geom_line(color="blue")
+  geom_line()
 ```
 
-observing the line plot is on top of the points/scatter plot and on a bigger size (thickness) of the line the points wont be visible anymore
+:::
+
+The order in which you append your geoms to the main `ggplot` function matters: whatever you list first will go underneath whatever comes next. For example, observe the difference between these two pieces of code and the plots they produce:
+
+```{r}
+ggplot(data=df_und5, aes(x=date_tested, y=incidence)) +
+  geom_line(size=2) +
+  geom_point(color="red", size=4) 
+
+ggplot(data=df_und5, aes(x=date_tested, y=incidence)) +
+  geom_point(color="red", size=4) +
+  geom_line(size=2)
+```
 
 ::: callout-tip
-### Tutorial:
+### Note:
 
-How can we ensure the plots are visible at all time despite the size of the line, write the snippet code for this (arrange in the order that will ensure visibility of points).
+It's easy and fun to switch layers around in ggplot, but watch out for any dangling `+` signs at the end of your plots! If you leave a `+` dangling at the end like this, your code will think that you're still typing your command and won't show your plot:
+
+```
+ggplot(data=df_und5, aes(x=date_tested, y=incidence)) +
+  geom_line(size=2) +
+  geom_point(color="red", size=4) +
+```
+
+Conversely, if you miss a `+` in the middle, your code will only show you the first part of your plot, then throw an error:
+
+```
+ggplot(data=df_und5, aes(x=date_tested, y=incidence)) +
+  geom_line(size=2) 
+  geom_point(color="red", size=4) 
+```
+
 :::
 
-### Adding title
+
+
+### Layering Exercise
+
+Change the code below so that the orange points are in front of the blue lines. Watch out for any missing or dangling `+` signs!
 
 ```{r}
 ggplot(data=df_und5, aes(x=date_tested, y=incidence)) +
-  geom_point() +
-  geom_line(color="blue") + labs(title = "Mabangata incidence 2018")
+  geom_point(color="orange", size=4) + 
+  geom_line(color="blue", size=2) 
 ```
-:::
 
-## The aes Function
+
+
+## Mapping Aesthetics with the `aes()` Function
 
 ::: callout-tip
 ### Aim:
@@ -183,7 +237,7 @@ ggplot(data = df_und5, aes(x = date_tested, y = incidence, color = incidence)) +
 ```
 :::
 
-## Creating a Line Plot
+## Line Plots
 
 ::: callout-tip
 ### Aim:
@@ -256,7 +310,7 @@ layered
 ```
 :::
 
-## Creating a Scatter Plot
+## Scatter Plots
 
 ::: callout-tip
 ### Aim:
@@ -311,7 +365,7 @@ You can customize various aspects of the scatter plot points using arguments wit
 2.  Create a scatter plot for confirmed cases in the Y axis and date_tested x axis with shapes of age_group and size of confirmed cases
 :::
 
-## combination of line and scatter plot
+## Layering Line and Scatter Plots
 
 ::: callout-tip
 ### Aim:
@@ -338,7 +392,7 @@ ggplot(data=df_und5, aes(x=date_tested, y= incidence))+
 ![](images/out3.png)
 :::
 
-## Customizing plots for presentation and publication purpose
+## Customizing Plots for Presentation and Publication
 
 ::: callout-tip
 ### Aim:
