@@ -133,7 +133,7 @@ ggplot(data=df_und5, aes(x=date_tested, y=incidence)) +
 :::
 
 
-
+::: callout-tip
 ### Layering Exercise
 
 Change the code below so that the orange points are in front of the blue lines. Watch out for any missing or dangling `+` signs!
@@ -143,7 +143,7 @@ ggplot(data=df_und5, aes(x=date_tested, y=incidence)) +
   geom_point(color="orange", size=4) + 
   geom_line(color="blue", size=2) 
 ```
-
+:::
 
 
 ## Mapping Aesthetics with the `aes()` Function
@@ -152,37 +152,53 @@ ggplot(data=df_und5, aes(x=date_tested, y=incidence)) +
 ### Aim:
 
 -   Understand the role of the aes function in ggplot.
-
 -   Learn when to use aes to map variables to aesthetics.
 :::
 
-The aes() function is used to map variables to aesthetic properties such as x and y axes, colors, shapes, etc.
+In the presentation, we learned that all visualizations are **mappings** of information from  abstract numbers into visual concepts like location, shape, color, etc.
 
-Variables specified within the aes() function are mapped to aesthetics and can vary across data points.
+The `aes()` function is used whenever we want to map variables in our dataset to aesthetic properties such as x and y axes, colors, shapes, etc. It is one of the most confusing aspects of ggplot, but also one of the most powerful once you get used to it. 
 
-It's important to keep variables that should vary across data points (e.g., data attributes) inside the aes() function.
+### `x` and `y`
+
+`aes()` can take many arguments (see the documentation for a full list), but you've already seen the most crucial ones: `x` and `y`. These arguments are always necessary for ggplot to understand which variables to show on the two-dimensional screen.
 
 ::: panel-tabset
-### Altering Variables
+### Switching `x` and `y`
 
 the aes in the base position and altering the variables of x axis and y axis
 
 ```{r}
-ggplot(data = df, aes(x = date_tested, y = incidence)) +
+ggplot(data = df_und5, aes(x = date_tested, y = incidence)) +
     geom_point()
 ```
 
 ```{r}
-ggplot(data = df, aes(y = date_tested, x = incidence)) +
+ggplot(data = df_und5, aes(x = incidence, y = date_tested,)) +
     geom_point()
 ```
 
-::: callout-tip
-### Tutorial:
+### Different `x` and `y`
 
-show a scatter plot with y axis being confirmed cases (conf) and x axis being dates
+```{r}
+ggplot(data = df_und5, aes(x = date_tested, y = pop)) +
+    geom_point()
+
+```
+
 :::
 
+
+::: callout-tip
+### `x` and `y` Exercise
+
+Create a scatter plot using the `df_und5` dataset, with date (`date_tested`) on the x axis and  confirmed cases (`conf`) on the y axis.
+:::
+
+
+### Color
+
+::: panel-tabset
 ### inside and outside the eas
 
 ```{r}
