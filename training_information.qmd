@@ -21,13 +21,7 @@ The workshop takes place at the **Kigali Marriott Hotel in Kigali, Rwanda on Apr
 
 ## Before the Workshop
 
-Please try to have these installed before the training, if you have any trouble installing we will have a station on 18th April where you can come for assistance (The steps might take approximately 15 minutes).
-
-a.  [Install R](https://gloriasalome20.github.io/Principles-and-Practice-of-Data-Visualization-in-R/Getting_started_with_R.html#installing-r)
-
-b.  [Install and Setup RStudio Desktop](https://gloriasalome20.github.io/Principles-and-Practice-of-Data-Visualization-in-R/Getting_started_with_R.html#install-and-setup-rstudio-desktop)
-
-c.  [Install Libraries](https://gloriasalome20.github.io/Principles-and-Practice-of-Data-Visualization-in-R/Getting_started_with_R.html#installing-r-packages)
+Please install R, RStudio, and the `tidyverse` library following these [installation instructions](Getting_started_with_R.qmd). If you have any trouble installing we will have a station on 18th April where you can come for assistance. Installation might take 15 minutes or more even on a good internet connection, so please install ahead of time!
 
 ::: callout-tip
 ### Note

@@ -249,7 +249,7 @@
     "href": "training_information.html#before-the-workshop",
     "title": "Training Information",
     "section": "Before the Workshop",
-    "text": "Before the Workshop\nPlease try to have these installed before the training, if you have any trouble installing we will have a station on 18th April where you can come for assistance (The steps might take approximately 15 minutes).\n\nInstall R\nInstall and Setup RStudio Desktop\nInstall Libraries\n\n\n\n\n\n\n\nNote\n\n\n\n\nAll software used in this workshop is free.\nIf you have any difficulties with the installation, support can be provided on the first day of the AMMnet meeting, before the session, during breaks."
+    "text": "Before the Workshop\nPlease install R, RStudio, and the tidyverse library following these installation instructions. If you have any trouble installing we will have a station on 18th April where you can come for assistance. Installation might take 15 minutes or more even on a good internet connection, so please install ahead of time!\n\n\n\n\n\n\nNote\n\n\n\n\nAll software used in this workshop is free.\nIf you have any difficulties with the installation, support can be provided on the first day of the AMMnet meeting, before the session, during breaks."
   },
   {
     "objectID": "training_information.html#friday-april-19th",
