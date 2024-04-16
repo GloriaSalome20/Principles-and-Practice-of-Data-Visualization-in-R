@@ -192,7 +192,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Basic_Visualization_concept.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Making Plots with ggplot2</span></a>
+ <span class="menu-text">Making Plots with <code>ggplot2</code></span></a>
   </div>
 </li>
       </ul>
@@ -207,13 +207,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#creating-a-new-r-script" id="toc-creating-a-new-r-script" class="nav-link active" data-scroll-target="#creating-a-new-r-script">Creating a new R Script</a></li>
+  <li><a href="#creating-a-new-r-script" id="toc-creating-a-new-r-script" class="nav-link active" data-scroll-target="#creating-a-new-r-script">Creating a New R Script</a></li>
   <li><a href="#understanding-r-panes" id="toc-understanding-r-panes" class="nav-link" data-scroll-target="#understanding-r-panes">Understanding R Panes</a></li>
   <li><a href="#managing-libraries" id="toc-managing-libraries" class="nav-link" data-scroll-target="#managing-libraries">Managing Libraries</a></li>
-  <li><a href="#reading-data" id="toc-reading-data" class="nav-link" data-scroll-target="#reading-data">Reading data</a>
-  <ul class="collapse">
-  <li><a href="#data-manipulation-to-choose-the-data-of-under-five-and-convert-to-date-format" id="toc-data-manipulation-to-choose-the-data-of-under-five-and-convert-to-date-format" class="nav-link" data-scroll-target="#data-manipulation-to-choose-the-data-of-under-five-and-convert-to-date-format">data manipulation to choose the data of under five and convert to date format</a></li>
-  </ul></li>
+  <li><a href="#reading-data" id="toc-reading-data" class="nav-link" data-scroll-target="#reading-data">Reading Data</a></li>
   </ul>
 </nav>
     </div>
@@ -239,25 +236,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div style="page-break-after: always;"></div>
 <section id="creating-a-new-r-script" class="level2">
-<h2 class="anchored" data-anchor-id="creating-a-new-r-script">Creating a new R Script</h2>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Aim:
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Understanding how to create and save a new R script file in RStudio.</p>
-</div>
-</div>
+<h2 class="anchored" data-anchor-id="creating-a-new-r-script">Creating a New R Script</h2>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">Step1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Step 2</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<p>Go to file &gt; New file &gt; R Script</p>
+<p>Go to File &gt; New File &gt; R Script</p>
 <p><img src="images/pic41.jpg" class="img-fluid"></p>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
@@ -268,19 +252,6 @@ Aim:
 </section>
 <section id="understanding-r-panes" class="level2">
 <h2 class="anchored" data-anchor-id="understanding-r-panes">Understanding R Panes</h2>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Aim:
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Familiarize yourself with the different panes in RStudio and their respective functionalities.</p>
-</div>
-</div>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Script Pane</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Console Pane</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">Environment Pane</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-4" role="tab" aria-controls="tabset-2-4" aria-selected="false">Plots, Files, and Viewer Pane</a></li></ul>
 <div class="tab-content">
@@ -307,93 +278,96 @@ Aim:
 </section>
 <section id="managing-libraries" class="level2">
 <h2 class="anchored" data-anchor-id="managing-libraries">Managing Libraries</h2>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Aim:
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Learn how to load and manage libraries for additional functionalities in R.</p>
-</div>
-</div>
-<p>Ensure to call out libraries responsible for the task aimed to achieve. for visualization <a href="">ggplot</a> will be used and <a href="">tidyvers</a> for data reading and exploration/Manipulation.</p>
+<p>For this workshop, we will need to have the <code>ggplot2</code> library installed and loaded.</p>
+<p>In your <strong>console</strong> panel, run this code:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load required libraries</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> <span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a> <span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>If it runs without an error, you have now loaded the <code>ggplot2</code> library into your workspace. If it throws an error, you have to install it first:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># install.packages("ggplot2")</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a> <span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If this doesn’t work, put a red post-it on your computer and someone will assist you.</p>
 </section>
 <section id="reading-data" class="level2">
-<h2 class="anchored" data-anchor-id="reading-data">Reading data</h2>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Aim:
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Understand how to import data into R from various file formats on different directories.</p>
-</div>
-</div>
-<p>You can read data from various file formarts like csv, excel and others.</p>
-<p><strong>Reading CSV Files</strong></p>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Step 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Step 2</a></li></ul>
-<div class="tab-content">
-<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
-<p>Ensure you save your data and R script in same folder</p>
+<h2 class="anchored" data-anchor-id="reading-data">Reading Data</h2>
+<p>Usually, you will read data from a file format such as a .csv, Stata, Excel file. However, for simplicity, today we will simply load data from a .RData file called <code>Mabangata_Incidence_2018.RData</code>. You should have received this file in an email, or you can download it <a href="Mabangata_Incidence_2018.RData">here</a>. If neither of those works, put a red post-it on your computer and someone will help you install it from a USB drive.</p>
+<p>Once it’s on your local machine, double click on the file and it should open in your RStudio session. You will know that it worked if you see two new items in your <strong>Environment Pane</strong> named <code>df</code> and <code>df_und5</code>. These datasets are imaginary malaria incidence data, by age group, from an imaginary location called Mabangata. This dataset was generated for training purposes by the Malaria Atlas Project and used with permission.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read CSV file</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"Mabangata_region_incidence2018.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"Mabangata_Incidence_2018.RData"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
-<p>When not in the same folder then copy the path/directory of the file</p>
+<p>We can visually inspect these datasets by typing their names into the console:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read CSV file from a different folder</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># df&lt;- read.csv("C:/Users/shirgl/Desktop/SwissTPH/conferences&amp;presentations/Ammnet/training materials/data_malariaAtlas/Mabangata_region_incidence2018.csv")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   date_tested age_group conf       pop  incidence
+1   2018-01-01     total  501 1929193.8  25.969397
+2   2018-01-01        u5  257  285209.8  90.109096
+3   2018-01-01       ov5  244 1643984.0  14.841994
+4   2018-02-01     total  519 1929193.8  26.902429
+5   2018-02-01        u5  266  285209.8  93.264668
+6   2018-02-01       ov5  253 1643984.0  15.389444
+7   2018-03-01     total  207 1929193.8  10.729871
+8   2018-03-01        u5  100  285209.8  35.061905
+9   2018-03-01       ov5  107 1643984.0   6.508579
+10  2018-04-01     total  481 1929193.8  24.932695
+11  2018-04-01        u5  232  285209.8  81.343620
+12  2018-04-01       ov5  249 1643984.0  15.146133
+13  2018-05-01     total  148 1929193.8   7.671598
+14  2018-05-01        u5   73  285209.8  25.595191
+15  2018-05-01       ov5   75 1643984.0   4.562088
+16  2018-06-01     total  416 1929193.8  21.563412
+17  2018-06-01        u5  209  285209.8  73.279382
+18  2018-06-01       ov5  207 1643984.0  12.591364
+19  2018-07-01     total  138 1929193.8   7.153247
+20  2018-07-01        u5   83  285209.8  29.101381
+21  2018-07-01       ov5   55 1643984.0   3.345531
+22  2018-08-01     total  386 1929193.8  20.008358
+23  2018-08-01        u5  195  285209.8  68.370715
+24  2018-08-01       ov5  191 1643984.0  11.618118
+25  2018-09-01     total 1554 1929193.8  80.551782
+26  2018-09-01        u5  869  285209.8 304.687956
+27  2018-09-01       ov5  685 1643984.0  41.667073
+28  2018-10-01     total  625 1929193.8  32.396952
+29  2018-10-01        u5  351  285209.8 123.067287
+30  2018-10-01       ov5  274 1643984.0  16.666829
+31  2018-11-01     total 1365 1929193.8  70.754944
+32  2018-11-01        u5  728  285209.8 255.250670
+33  2018-11-01       ov5  637 1643984.0  38.747336
+34  2018-12-01     total  567 1929193.8  29.390515
+35  2018-12-01        u5  304  285209.8 106.588192
+36  2018-12-01       ov5  263 1643984.0  15.997723</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df_und5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   date_tested age_group conf      pop incidence
+1   2018-01-01        u5  257 285209.8  90.10910
+2   2018-02-01        u5  266 285209.8  93.26467
+3   2018-03-01        u5  100 285209.8  35.06191
+4   2018-04-01        u5  232 285209.8  81.34362
+5   2018-05-01        u5   73 285209.8  25.59519
+6   2018-06-01        u5  209 285209.8  73.27938
+7   2018-07-01        u5   83 285209.8  29.10138
+8   2018-08-01        u5  195 285209.8  68.37072
+9   2018-09-01        u5  869 285209.8 304.68796
+10  2018-10-01        u5  351 285209.8 123.06729
+11  2018-11-01        u5  728 285209.8 255.25067
+12  2018-12-01        u5  304 285209.8 106.58819</code></pre>
 </div>
 </div>
-</div>
-</div>
-<p><strong>Reading Other File Formats</strong></p>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">excel</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Stata (Dta)</a></li></ul>
-<div class="tab-content">
-<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load library for Excel</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># library(readxl)</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Read Excel file</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># read_excel()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load library for Stata</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># library(haven)</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Read Stata file</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># read.dta()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</div>
-<section id="data-manipulation-to-choose-the-data-of-under-five-and-convert-to-date-format" class="level3">
-<h3 class="anchored" data-anchor-id="data-manipulation-to-choose-the-data-of-under-five-and-convert-to-date-format">data manipulation to choose the data of under five and convert to date format</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>date_tested <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(df<span class="sc">$</span>date_tested,<span class="st">"%m/%d/%Y"</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>df_und5<span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(age_group<span class="sc">==</span><span class="st">"u5"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<p>By looking at the data, we see that <code>df</code> contains malaria-related information for each month of 2018:</p>
+<ul>
+<li><code>date_tested</code>: the month for which data was collected.</li>
+<li><code>age_group</code>: the age group of data collectiion. Possible values are<code>u5</code> (under 5), <code>ov5</code> (over 5), or <code>total</code></li>
+<li><code>conf</code>: confirmed malaria cases</li>
+<li><code>pop</code>: population</li>
+<li><code>incidence</code>: cases per 100,000 people</li>
+</ul>
+<p>The second dataset, <code>df_und5</code>, is <code>df</code>, but subset down to only the <code>u5</code> age group.</p>
+<p>We will use both of these datasets for our plotting in the following section.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

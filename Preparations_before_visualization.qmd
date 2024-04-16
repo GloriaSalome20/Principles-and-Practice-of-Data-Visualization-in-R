@@ -15,18 +15,13 @@ execute:
 
 {{< pagebreak >}}
 
-## Creating a new R Script
+## Creating a New R Script
 
-::: callout-tip
-### Aim:
-
-Understanding how to create and save a new R script file in RStudio.
-:::
 
 ::: panel-tabset
 ### Step1
 
-Go to file \> New file \> R Script
+Go to File \> New File \> R Script
 
 ![](images/pic41.jpg)
 
@@ -36,12 +31,6 @@ Save your R script in the folder of desired directory ![](images/pic42.jpg)
 :::
 
 ## Understanding R Panes
-
-::: callout-tip
-### Aim:
-
-Familiarize yourself with the different panes in RStudio and their respective functionalities.
-:::
 
 ::: panel-tabset
 ### Script Pane
@@ -75,77 +64,50 @@ This pane serves multiple purposes:
 
 ## Managing Libraries
 
-::: callout-tip
-### Aim:
+For this workshop, we will need to have the `ggplot2` library installed and loaded. 
 
-Learn how to load and manage libraries for additional functionalities in R.
-:::
-
-Ensure to call out libraries responsible for the task aimed to achieve. for visualization [ggplot]() will be used and [tidyvers]() for data reading and exploration/Manipulation.
+In your **console** panel, run this code:
 
 ```{r}
-# Load required libraries
  library(ggplot2)
- library(tidyverse)
 ```
 
-## Reading data
-
-::: callout-tip
-### Aim:
-
-Understand how to import data into R from various file formats on different directories.
-:::
-
-You can read data from various file formarts like csv, excel and others.
-
-**Reading CSV Files**
-
-::: panel-tabset
-### Step 1
-
-Ensure you save your data and R script in same folder
+If it runs without an error, you have now loaded the `ggplot2` library into your workspace. If it throws an error, you have to install it first:
 
 ```{r}
-# Read CSV file
-df <- read.csv("Mabangata_region_incidence2018.csv")
+ # install.packages("ggplot2")
+ library(ggplot2)
 ```
 
-### Step 2
+If this doesn't work, put a red post-it on your computer and someone will assist you.
 
-When not in the same folder then copy the path/directory of the file
+## Reading Data
+
+Usually, you will read data from a file format such as a .csv, Stata, Excel file. However, for simplicity, today we will simply load data from a .RData file called `Mabangata_Incidence_2018.RData`. You should have received this file in an email, or you can download it [here](Mabangata_Incidence_2018.RData). If neither of those works, put a red post-it on your computer and someone will help you install it from a USB drive.
+
+Once it's on your local machine, double click on the file and it should open in your RStudio session. You will know that it worked if you see two new items in your **Environment Pane** named `df` and `df_und5`. These datasets are imaginary malaria incidence data, by age group, from an imaginary location called Mabangata. This dataset was generated for training purposes by the Malaria Atlas Project and used with permission.
+
 
 ```{r}
-# Read CSV file from a different folder
-# df<- read.csv("C:/Users/shirgl/Desktop/SwissTPH/conferences&presentations/Ammnet/training materials/data_malariaAtlas/Mabangata_region_incidence2018.csv")
+load("Mabangata_Incidence_2018.RData")
 ```
-:::
 
-**Reading Other File Formats**
-
-::: panel-tabset
-### excel
+We can visually inspect these datasets by typing their names into the console:
 
 ```{r}
-# Load library for Excel
-# library(readxl)
-# Read Excel file
-# read_excel()
+df
+df_und5
 ```
 
-### Stata (Dta)
+By looking at the data, we see that `df` contains malaria-related information for each month of 2018:
 
-```{r}
-# Load library for Stata
-# library(haven)
-# Read Stata file
-# read.dta()
-```
-:::
+- `date_tested`: the month for which data was collected.
+- `age_group`: the age group of data collectiion. Possible values are`u5` (under 5), `ov5` (over 5), or `total`
+- `conf`: confirmed malaria cases
+- `pop`: population
+- `incidence`: cases per 100,000 people
 
-### data manipulation to choose the data of under five and convert to date format
+The second dataset, `df_und5`, is `df`, but subset down to only the `u5` age group.
 
-```{r}
-df$date_tested <- as.Date(df$date_tested,"%m/%d/%Y")
-df_und5<- df %>% filter(age_group=="u5") 
-```
+We will use both of these datasets for our plotting in the following section.
+
