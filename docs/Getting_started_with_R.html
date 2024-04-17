@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Principles-and-Practice-of-Data-Visualization-in-R - R an R Studio Installation</title>
+<title>Principles-and-Practice-of-Data-Visualization-in-R - Installing/Updating R and RStudio</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -97,7 +97,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./training_information.html">Basics</a></li><li class="breadcrumb-item"><a href="./Getting_started_with_R.html">R an R Studio Installation</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./training_information.html">Basics</a></li><li class="breadcrumb-item"><a href="./Getting_started_with_R.html">Installing/Updating R and RStudio</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -135,7 +135,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Getting_started_with_R.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">R an R Studio Installation</span></a>
+ <span class="menu-text">Installing/Updating R and RStudio</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -162,11 +162,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#getting-started-with-r-and-rstudio-installation-guide" id="toc-getting-started-with-r-and-rstudio-installation-guide" class="nav-link active" data-scroll-target="#getting-started-with-r-and-rstudio-installation-guide">Getting Started with R and RStudio Installation Guide</a>
+  <li><a href="#step-1-installing-r" id="toc-step-1-installing-r" class="nav-link active" data-scroll-target="#step-1-installing-r">Step 1: Installing R</a>
   <ul class="collapse">
-  <li><a href="#installing-r" id="toc-installing-r" class="nav-link" data-scroll-target="#installing-r">Installing R</a></li>
-  <li><a href="#install-and-setup-rstudio-desktop" id="toc-install-and-setup-rstudio-desktop" class="nav-link" data-scroll-target="#install-and-setup-rstudio-desktop">Install and setup RStudio Desktop</a></li>
-  <li><a href="#installing-r-packages" id="toc-installing-r-packages" class="nav-link" data-scroll-target="#installing-r-packages">Installing R packages</a></li>
+  <li><a href="#on-windows" id="toc-on-windows" class="nav-link" data-scroll-target="#on-windows">On Windows</a></li>
+  <li><a href="#on-macos" id="toc-on-macos" class="nav-link" data-scroll-target="#on-macos">On MacOS</a></li>
+  </ul></li>
+  <li><a href="#step-2-installing-rstudio-desktop" id="toc-step-2-installing-rstudio-desktop" class="nav-link" data-scroll-target="#step-2-installing-rstudio-desktop">Step 2: Installing RStudio Desktop</a></li>
+  <li><a href="#step-3-installing-r-packages" id="toc-step-3-installing-r-packages" class="nav-link" data-scroll-target="#step-3-installing-r-packages">Step 3: Installing R packages</a>
+  <ul class="collapse">
+  <li><a href="#using-the-graphic-interface" id="toc-using-the-graphic-interface" class="nav-link" data-scroll-target="#using-the-graphic-interface">Using the Graphic Interface</a></li>
+  <li><a href="#using-the-rstudio-console" id="toc-using-the-rstudio-console" class="nav-link" data-scroll-target="#using-the-rstudio-console">Using the RStudio Console</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -176,7 +181,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">R an R Studio Installation</h1>
+<h1 class="title">Installing/Updating R and RStudio</h1>
 </div>
 
 
@@ -191,29 +196,16 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="getting-started-with-r-and-rstudio-installation-guide" class="level1">
-<h1>Getting Started with R and RStudio Installation Guide</h1>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Aim of this section
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>To provide you with a clear and concise instructions for installing R, RStudio, and R packages</p>
-</div>
-</div>
-<section id="installing-r" class="level2">
-<h2 class="anchored" data-anchor-id="installing-r">Installing R</h2>
-<p><strong>R</strong> is a powerfull programming language for statistical computing and graphics. It is one of main programming language used for data science (with other programming languages such as Python and Julia).</p>
+<section id="step-1-installing-r" class="level1">
+<h1>Step 1: Installing R</h1>
+<p><strong>R</strong> is a powerful programming language for statistical computing and graphics. It is one of main programming language used for data science (with other programming languages such as Python and Julia). The following instructions will show you how to install or update R on either a Windows or a Mac computer. Please complete all steps for your machine. If you have any trouble, please reach out to <a href="mailto:gshirima@ihi.or.tz?subject=R%20Help">gshirima@ihi.or.tz</a> or <a href="mailto:amelia.bertozzi-villa@gatesfoundation.org?subject=R%20Help">amelia.bertozzi-villa@gatesfoundation.org</a>.</p>
+<section id="on-windows" class="level2">
+<h2 class="anchored" data-anchor-id="on-windows">On Windows</h2>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">Step 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Step 2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Step 3</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">Step 4</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-5" role="tab" aria-controls="tabset-1-5" aria-selected="false">Step 5</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-6-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-6" role="tab" aria-controls="tabset-1-6" aria-selected="false">Step 6</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<p><strong>DOWNLOAD R</strong></p>
+<p><strong>Download R</strong></p>
 <p>Visit the <a href="https://cran.r-project.org/mirrors.html">Comprehensive R Archive Network (CRAN)</a> to download R which is a network of servers around the world that store identical up-to-date versions of code and documentation for R. </p><div style="page-break-after: always;"></div><p></p>
 <p><img src="images/pic1.png" class="img-fluid"> Scroll down the page to locate the mirror that is the closest to your geographic location and click on its URL.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -232,8 +224,8 @@ Tip
 <p>For instance, when downloading R from Rwanda, you can select the mirror from <a href="https://cran.mirror.ac.za/">South Africa</a>.</p>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p><strong>CHOOSE YOUR OPERATION SYSTEM</strong></p>
-<p>Once on the CRAN page, select your operating system: Linux, macOS, or Windows. </p><div style="page-break-after: always;"></div><p></p>
+<p><strong>Choose Your Operating System</strong></p>
+<p>Once on the CRAN page, select the operating system Windows. </p><div style="page-break-after: always;"></div><p></p>
 <p><img src="images/pic2.png" class="img-fluid"></p>
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
@@ -242,19 +234,19 @@ Tip
 <p><img src="images/pic3.png" class="img-fluid"></p>
 </div>
 <div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
-<p><strong>DOWNLOAD THE INSTALLER</strong></p>
+<p><strong>Download the Installer</strong></p>
 <p>Download the R installer (&lt; 80 MB)</p>
 <div style="page-break-after: always;"></div>
 <p><img src="images/pic4.png" class="img-fluid"></p>
 </div>
 <div id="tabset-1-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-5-tab">
-<p><strong>RUN THE INSTALLER</strong></p>
+<p><strong>Run the Installer</strong></p>
 <p>Locate the downloaded file in your computer’s Downloads folder and double-click to run the installation wizard.</p>
 <div style="page-break-after: always;"></div>
 <p><img src="images/pic5.png" class="img-fluid"></p>
 </div>
 <div id="tabset-1-6" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-6-tab">
-<p><strong>COMPLETE INSTALLATION</strong></p>
+<p><strong>Complete Installation</strong></p>
 <p>Follow the instruction in the installation wizard to complete the installation.</p>
 <div style="page-break-after: always;"></div>
 <p><img src="images/pic6.png" class="img-fluid"></p>
@@ -263,22 +255,67 @@ Tip
 </div>
 <div style="page-break-after: always;"></div>
 </section>
-<section id="install-and-setup-rstudio-desktop" class="level2">
-<h2 class="anchored" data-anchor-id="install-and-setup-rstudio-desktop">Install and setup RStudio Desktop</h2>
-<p><strong>Rstudio</strong> is an integrated development environment (IDE) for R, providing a user-friendly interface for R programming.</p>
+<section id="on-macos" class="level2">
+<h2 class="anchored" data-anchor-id="on-macos">On MacOS</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Step 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Step 2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">Step 3</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-4" role="tab" aria-controls="tabset-2-4" aria-selected="false">Step 4</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-5" role="tab" aria-controls="tabset-2-5" aria-selected="false">Step 5</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<p><strong>Download R</strong></p>
+<p>Visit the <a href="https://cran.r-project.org/mirrors.html">Comprehensive R Archive Network (CRAN)</a> to download R which is a network of servers around the world that store identical up-to-date versions of code and documentation for R. </p><div style="page-break-after: always;"></div><p></p>
+<p><img src="images/pic1.png" class="img-fluid"> Scroll down the page to locate the mirror that is the closest to your geographic location and click on its URL.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>RStudio is moving away from its R-exclusive focus and becoming Posit in October 2022 to enable broader data science, scientific research, and technical communication functionalities and, in particular, to integrate Python users.</p>
+<p>Selecting a mirror that is close to you may help speed up the download. You can still use another mirror since the closest geographic location does not always give the best mirror.</p>
 </div>
 </div>
+<p>For instance, when downloading R from Rwanda, you can select the mirror from <a href="https://cran.mirror.ac.za/">South Africa</a>.</p>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<p><strong>Choose Your Operating System</strong></p>
+<p>Once on the CRAN page, select the operating system macOS. </p><div style="page-break-after: always;"></div><p></p>
+<p><img src="images/macos_select_os.png" class="img-fluid"></p>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<p>You will be directed to a page that looks like this:</p>
+<div style="page-break-after: always;"></div>
+<p><img src="images/macos_binary_choice.png" class="img-fluid"></p>
+<p>You must now select one of two binary packages to install, depending on the age of your computer. Go to the Apple icon in the top left corner of your Mac and select “About This Mac”.</p>
+<div style="page-break-after: always;"></div>
+<p><img src="images/macos_about_mac.png" class="img-fluid"></p>
+<p>When you click, a small window will appear giving you information about your computer. Notice what is written next to the “Chip:” label:</p>
+<div style="page-break-after: always;"></div>
+<p><img src="images/macos_M2_info.png" class="img-fluid"> </p><div style="page-break-after: always;"></div><p></p>
+<p>If the chip is M1, M2, or M3, click the <code>arm64.pkg</code> installer on the R installation page. If the chip does not say M1, M2, or M3, clicke the <code>x86_64.pkg</code> installer.</p>
+</div>
+<div id="tabset-2-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-4-tab">
+<p><strong>Download the Installer</strong></p>
+<p>Download the R installer (~100 MB). When it has installed, click on it in your “Downloads” folder.</p>
+<div style="page-break-after: always;"></div>
+<p><img src="images/macos_download.png" class="img-fluid"></p>
+</div>
+<div id="tabset-2-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-5-tab">
+<p><strong>Run the Installer</strong></p>
+<p>Locate the downloaded file in your computer’s Downloads folder and double-click to run the installation wizard. When the installation is complete, you may be prompted to delete the installer file. If you are prompted, press “Yes”. If you are not prompted, you can delete the installer .pkg file manually.</p>
+<div style="page-break-after: always;"></div>
+<p><img src="images/macos_wizard.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</section>
+</section>
+<section id="step-2-installing-rstudio-desktop" class="level1">
+<h1>Step 2: Installing RStudio Desktop</h1>
+<p><strong>Rstudio</strong> is an integrated development environment (IDE) for R, providing a user-friendly interface for R programming. The installation process is very similar on both Windows and Mac operating systems, so a single set of instructions is provided.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -293,34 +330,30 @@ Important
 </div>
 </div>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Step 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Step 2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">Step 3</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-4" role="tab" aria-controls="tabset-2-4" aria-selected="false">Step 4</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-5" role="tab" aria-controls="tabset-2-5" aria-selected="false">Step 5</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-6-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-6" role="tab" aria-controls="tabset-2-6" aria-selected="false">Step 6</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Step 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Step 2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false">Step 3</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-4" role="tab" aria-controls="tabset-3-4" aria-selected="false">Step 4</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-5" role="tab" aria-controls="tabset-3-5" aria-selected="false">Step 5</a></li></ul>
 <div class="tab-content">
-<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
-<p><strong>DOWNLOAD RStudio</strong></p>
-<p>You can download R from the <a href="https://posit.co/download/rstudio-desktop/">RStudio website</a>. There are different RStudio products available, but the free Desktop version offers all necessary features for your analyses.</p>
-<p><img src="images/pic21.png" class="img-fluid"></p>
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<p><strong>Download RStudio</strong></p>
+<p>You can download R from the <a href="https://posit.co/download/rstudio-desktop/">RStudio website</a>. Scroll to the bottom of the page, where you’ll see a button to install R on the left, and a button to install RStudio on the right. You’ve already installed R, so ignore the left hand side and click on the “Download and Install RStudio Desktop” button on the right. The RStudio website should automatically detect the operating system you’re using and prompt you to download the correct one.</p>
+<p>The file will be ~400MB and may take a while to download.</p>
+<p><img src="images/macos_rstudio_download.png" class="img-fluid"></p>
 </div>
-<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
-<p><strong>CHOOSE YOUR OPERATION SYSTEM</strong></p>
-<p>Download the RStudio Desktop installer compatible with your operating system.</p>
-<p><img src="images/pic22.png" class="img-fluid"></p>
-</div>
-<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
-<p><strong>RUN THE INSTALLER</strong></p>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<p><strong>Run the Installer</strong></p>
 <p>Locate the downloaded file in your computer’s Downloads folder and double-click to run the setup.</p>
 <p><img src="images/pic23.png" class="img-fluid"></p>
 </div>
-<div id="tabset-2-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-4-tab">
-<p><strong>COMPLETE INSTALLATION</strong></p>
+<div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
+<p><strong>Complete Installation</strong></p>
 <p>Follow the instruction in the installation wizard to complete the installation process.</p>
 <p><img src="images/pic24.png" class="img-fluid"></p>
 </div>
-<div id="tabset-2-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-5-tab">
-<p><strong>CONFIGURATION</strong></p>
+<div id="tabset-3-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-4-tab">
+<p><strong>Configuration</strong></p>
 <p>After installing RStudio, open the application. Navigate to Tools &gt; Global options to set your preferences.</p>
 <p><img src="images/pic25.png" class="img-fluid"></p>
 </div>
-<div id="tabset-2-6" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-6-tab">
+<div id="tabset-3-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-5-tab">
 <p>Under the <strong>General</strong> options and the <strong>Basic</strong> tab:</p>
 <p><strong>Workspace</strong></p>
 <p>Uncheck Restore .RData into workspace at startup</p>
@@ -333,34 +366,77 @@ Important
 </div>
 </div>
 </section>
-<section id="installing-r-packages" class="level2">
-<h2 class="anchored" data-anchor-id="installing-r-packages">Installing R packages</h2>
+<section id="step-3-installing-r-packages" class="level1">
+<h1>Step 3: Installing R packages</h1>
+<p>A R package is a collection of functions, data, and compiled code in a well-defined format, created to add specific functionality to R.</p>
+<p>There are 10,000+ user contributed packages and growing.</p>
+<p>There is a set of standard (or base) packages which is considered part of the R source code and automatically available as part of your R installation. Base packages contain the basic functions that allow R to work, and enable standard statistical and graphical functions on data sets.</p>
+<p>You can install packages two different ways: using the RStudio graphic interface, or using the RStudio console.</p>
+<p><strong>Required packages to install</strong>: For <strong>Principles and Practice of Data Visualization in R</strong>: <code>tidyverse</code>, <code>ggplot2</code></p>
+<p>Other course requirements coming soon.</p>
+<section id="using-the-graphic-interface" class="level2">
+<h2 class="anchored" data-anchor-id="using-the-graphic-interface">Using the Graphic Interface</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Step 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Step 2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-3" role="tab" aria-controls="tabset-4-3" aria-selected="false">Step 3</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<p>Open RStudio on your computer.</p>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<p>In RStudio, you can install a new package by selecting Tools &gt; Install packages… <img src="images/pic31.png" class="img-fluid"></p>
+</div>
+<div id="tabset-4-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-3-tab">
+<p>Enter the name of the package you want to install, or browse through available packages. Select the desired package(s) and click Install to add them to your R environment. <img src="images/pic32.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="using-the-rstudio-console" class="level2">
+<h2 class="anchored" data-anchor-id="using-the-rstudio-console">Using the RStudio Console</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">Step 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">Step 2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-3" role="tab" aria-controls="tabset-5-3" aria-selected="false">Step 3</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-4" role="tab" aria-controls="tabset-5-4" aria-selected="false">Step 4</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
+<p>Open RStudio on your computer.</p>
+</div>
+<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
+<p>In the “Console” tab (at the bottom left of the screen if using the default settings), type <code>install.packages("PACKAGE_NAME")</code>, with the name of the package instead of the letters “PACKAGE_NAME”. Don’t forget the quotation marks! For example, to install the <code>tidyverse</code> package, type <code>install.packages("tidyverse")</code>:</p>
+<p><img src="images/macos_install_packages.png" class="img-fluid"></p>
+</div>
+<div id="tabset-5-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-3-tab">
+<p>You should see a series of text scrolling down the screen (there might be a lot!), followed by a message saying that “the downloaded binary packages are in [location]”.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>A R package is a collection of functions, data, and compiled code in a well-defined format, created to add specific functionality to R.</p>
-<p>There are 10,000+ user contributed packages and growing.</p>
-<p>There is a set of standard (or base) packages which is considered part of the R source code and automatically available as part of your R installation. Base packages contain the basic functions that allow R to work, and enable standard statistical and graphical functions on data sets.</p>
+<p>There should <strong>not</strong> be any error messages in this process! If you run into errors, try installing via the user interface. If there are still problems, contact the AMMnet team for support.</p>
 </div>
 </div>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Step 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Step 2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false">Step 3</a></li></ul>
-<div class="tab-content">
-<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
-<p>Open RStudio on your computer</p>
+<p><img src="images/macos_install_outputs.png" class="img-fluid"></p>
 </div>
-<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
-<p>In RStudio, you can install a new package by selecting Tools &gt; Install packages… <img src="images/pic31.png" class="img-fluid"></p>
+<div id="tabset-5-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-4-tab">
+<p>Test the successful installation by “loading” the package into the console.</p>
+<p>Type the words <code>find.package("PACKAGE_NAME")</code> into the console. If the package installed successfully, you should see a filepath to the location of the package. If the package didn’t install successfully, you’ll see an error message. Below, you can see an example with a successfully installed package (<code>tidyverse</code>) and a package that has not been installed (<code>fake_package</code>).</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
-<p>Enter the name of the package you want to install, or browse through available packages. Select the desired package(s) and click Install to add them to your R environment. <img src="images/pic32.png" class="img-fluid"></p>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you run into errors, try installing via the user interface. If there are still problems, contact the AMMnet team for support.</p>
+</div>
+</div>
+<p><img src="images/macos_confirm_package.png" class="img-fluid"></p>
 </div>
 </div>
 </div>
