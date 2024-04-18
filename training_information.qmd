@@ -21,7 +21,9 @@ The workshop takes place at the **Kigali Marriott Hotel in Kigali, Rwanda on Apr
 
 ## Before the Workshop
 
-Please install R, RStudio, and the `tidyverse` library following these [installation instructions](Getting_started_with_R.qmd). If you have any trouble installing we will have a station on 18th April where you can come for assistance. Installation might take 15 minutes or more even on a good internet connection, so please install ahead of time!
+Please install R, RStudio, and the `ggplot2` library following these [installation instructions](Getting_started_with_R.qmd). If you have any trouble installing we will have a station on 18th April where you can come for assistance. Installation might take 15 minutes or more even on a good internet connection, so please install ahead of time!
+
+Please also **download [the data](Mabangata_Incidence_2018.RData) we will be using for the workshop** ahead of time. You should also receive this data as an attachment in your email. If you are having trouble downloading the data, please put a red sticky note on your computer and we will assist you. 
 
 ::: callout-tip
 ### Note
@@ -42,15 +44,17 @@ Please install R, RStudio, and the `tidyverse` library following these [installa
 +--------------+-------------------------------------------------+-------------+
 | 9:30 - 9:50  | Introduction to Data Visualization              |             |
 +--------------+-------------------------------------------------+-------------+
-| 9:50-10:20   | Introduction to RStudio, Reading Data, GGplot   |             |
+| 9:50-10:05   | Getting Familiar with RStudio, Reading Data     |             |
 +--------------+-------------------------------------------------+-------------+
-| 10:20-11:00  | Line Plots and Scatter Plots                    |             |
+| 10:05-11:00  | Introduction to `ggplot2` and geoms             |             |
 +--------------+-------------------------------------------------+-------------+
 | 11-11:30     | Coffee Break                                    |             |
 +--------------+-------------------------------------------------+-------------+
-| 11:30-12:10  | Combined Plot Types, Customizing Plots          |             |
+| 11:30-12:15  | Mapping aesthetics: the `aes()` function        |             |
 +--------------+-------------------------------------------------+-------------+
-| 12:10-13:00  | Conclusion and Survey                           |             |
+| 12:15-12:45  | Customizing Plots for Presentation & Publication|             |
++--------------+-------------------------------------------------+-------------+
+| 12:45-13:00  | Conclusion and Survey                           |             |
 +--------------+-------------------------------------------------+-------------+
 
 

@@ -13,7 +13,7 @@ execute:
   warning: false
 ---
 
-```{r}
+```{r echo=FALSE}
 library(tidyverse)
 df <- read.csv("Mabangata_region_incidence2018.csv")
 df$date_tested <- as.Date(df$date_tested,"%m/%d/%Y")
@@ -25,7 +25,7 @@ df_und5<- df %>% filter(age_group=="u5")
 
 At the end of the training we will be able to produce this plot:
 
-```{r}
+```{r echo=FALSE}
 ggplot(data=df,aes(x=date_tested, y= incidence))+
   geom_line(aes(color=age_group)) +
   geom_point()+
@@ -144,6 +144,9 @@ ggplot(data=df_und5, aes(x=date_tested, y=incidence)) +
   geom_line(colour="blue", size=2) 
 ```
 
+:::
+
+::: {.callout-tip collapse=true}
 ### Solution
 ```{r}
 ggplot(data=df_und5, aes(x=date_tested, y=incidence)) +
@@ -241,6 +244,9 @@ ggplot(data = df_und5, aes(x = date_tested, y = incidence))+
   geom_point(colour="red", size=3, shape=4)
 ```
 
+:::
+
+::: {.callout-tip collapse=true}
 ### Solution
 ```{r}
 ggplot(data = df_und5, aes(x = date_tested, y = incidence))+ 
@@ -296,6 +302,9 @@ ggplot(data = df_und5, aes(x = date_tested, y = pop)) +
 
 Create a scatter plot using the `df_und5` dataset, with date (`date_tested`) on the x axis and  confirmed cases (`conf`) on the y axis.
 
+:::
+
+::: {.callout-tip collapse=true}
 ### Solution
 ```{r}
 ggplot(data = df_und5, aes(x = date_tested, y = conf)) +
@@ -382,7 +391,9 @@ ggplot(data=df,aes(x=date_tested,y=incidence))+
 
 Create the following plot:
 ![](images/line_size_exercise.png)
+:::
 
+::: {.callout-tip collapse=true}
 ### Solution:
 ```{r}
 ggplot(data=df,aes(x=date_tested,y=incidence))+
@@ -450,7 +461,9 @@ In the plot above, why are the points black instead of in color?
 
 ![](images/mixed_aes_exercise_1.png)
 
+:::
 
+::: {.callout-tip collapse=true}
 ### Solution
 ```{r}
 ggplot(data=df,aes(x=date_tested,y=incidence)) +
@@ -467,7 +480,9 @@ ggplot(data=df,aes(x=date_tested,y=incidence)) +
 
 ![](images/mixed_aes_exercise_2.png)
 
+:::
 
+::: {.callout-tip collapse=true}
 ### Solution
 ```{r}
 ggplot(data=df,aes(x=date_tested,y=incidence)) +
@@ -549,8 +564,9 @@ ggplot(data=df,aes(x=date_tested, y= incidence))+
 Create the following plot:
 
 ![](images/final_image.png)
+:::
 
-
+::: {.callout-tip collapse=true}
 ### Solution
 ```{r}
 ggplot(data=df,aes(x=date_tested, y= incidence))+
