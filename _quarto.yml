@@ -20,10 +20,15 @@ website:
         contents:
           - Preparations_before_visualization.qmd
           - Basic_Visualization_concept.qmd
-    page-footer:
-        left: "This page was built by [Quarto](https://quarto.org/). Copyright 2024, Gloria Shirima & Amelia Bertozzi-Villa"
-        right:
-          - icon: github
+      - section: "Further Resources"
+        contents:
+          - further_resources.qmd
+  page-footer:
+      left:
+        "This page was built by [Quarto](https://quarto.org/).
+        Copyright 2024, Gloria Shirima & Amelia Bertozzi-Villa"
+      right:
+        - icon: github
 
 format:
   html:
