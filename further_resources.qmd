@@ -1,0 +1,19 @@
+---
+title: "Further Resources"
+format:
+  html:
+    smooth-scroll: true
+    toc: true
+    toc-location: right
+    number-sections: false
+    number-depth: 2
+    css: styles.css
+execute:
+  echo: true
+  warning: false
+---
+
+-   [`ggplot2` cheat sheet](
+https://rstudio.github.io/cheatsheets/html/data-visualization.html): a collection of all `ggplot2` geoms and the arguments they take.
+- malariaAtlas [package](https://cran.r-project.org/web/packages/malariaAtlas/index.html) and [documentation](https://github.com/malaria-atlas-project/malariaAtlas/blob/master/README.md): R package that includes many shapefiles and other data from the Malaria Atlas Project 
+- Malaria Atlas Project [data training](https://malaria-atlas-project.gitlab.io/intro-to-spatial-analysis-for-infectious-diseases/): Extensive training curriculum on spatial malaria data in R.
